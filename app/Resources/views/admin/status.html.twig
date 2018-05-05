@@ -1,0 +1,181 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    Administrator - Vote Status in {{ location.name }}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            {#<h2 class="animated bounceInLeft">Welcome, Administrator!</h2>#}
+            <h2 class="text-center"><strong>Vote Status in {{ location.name }}</strong></h2>
+            {#<hr>#}
+            <div class="col-md-12">
+                {% set cnt = 1 %}
+                {% set rank = 1 %}
+                {#{% set pick = [1,7,1,7]  %}#}
+                {#{% set pick_pos = 0 %}#}
+                {#{% set pos = 0 %}#}
+                {% for candidate in candidates %}
+                {% if cnt == candidate.loc_id %}
+                <table id="tbl_{{ cnt }}" class="table table-hover animated fadeIn">
+                    <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Nickname</th>
+                        <th>Total Votes</th>
+                        <th>Vote Information</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <hr>
+                    <h4><b>{{ candidate.pos_name }}</b></h4>
+                    <hr>
+                    {% set cnt = cnt + 1 %}
+                    {% set rank = 1 %}
+                    {#{% set pos = 0 %}#}
+                    {#{% set pick_pos = pick_pos + 1 %}#}
+                    {% endif %}
+                    {#<tr {% if pos < pick[0] %} style="font-size: 20px;" {% endif %}>#}
+                    <tr>
+                        <td class="text-center"><strong>#{{ rank }}</strong></td>
+                        <td>{{ candidate.name }}</td>
+                        <td>{{ candidate.nickname }}</td>
+                        <td>{{ candidate.votes }}</td>
+                        <td><a href="#" class="btn btn-warning"><i class="fa fa-exclamation-circle"></i></a></td>
+                    </tr>
+                    {% set rank = rank + 1 %}
+                    {#{% set pos = pos + 1 %}#}
+                    {% else %}
+                        <div class="alert alert-warning animated bounceIn">
+                            {#<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>#}
+                            <strong>Ooops!</strong> No Votes found in {{ location.name }}
+                        </div>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        $(document).ready( function() {
+            $('#tbl_1').DataTable({
+                "order" : [[ 3, "desc" ]],
+                "columnDefs": [
+                    {
+                        "targets": [4],
+                        "sortable": false
+                    }
+                ],
+                "language": {
+                    searchPlaceholder: "Search Precint or Cluster"
+                },
+            });
+
+            $('#tbl_2').DataTable({
+                "order" : [[ 3, "desc" ]],
+                "columnDefs": [
+                    {
+                        "targets": [4],
+                        "sortable": false
+                    }
+                ],
+                "language": {
+                    searchPlaceholder: "Search Precint or Cluster"
+                },
+            });
+
+            $('#tbl_3').DataTable({
+                "order" : [[ 3, "desc" ]],
+                "columnDefs": [
+                    {
+                        "targets": [4],
+                        "sortable": false
+                    }
+                ],
+                "language": {
+                    searchPlaceholder: "Search Precint or Cluster"
+                },
+            });
+
+            $('#tbl_4').DataTable({
+                "order" : [[ 3, "desc" ]],
+                "columnDefs": [
+                    {
+                        "targets": [4],
+                        "sortable": false
+                    }
+                ],
+                "language": {
+                    searchPlaceholder: "Search Precint or Cluster"
+                },
+            });
+        });
+        //        $(document).ready( function() {
+        //            $('#tbl_1').DataTable({
+        //                "pageLength": 1,
+        //                "dom": 't',
+        //                "order" : [[ 3, "desc" ]],
+        //                "columnDefs": [
+        //                    {
+        //                        "targets": [0,1,2,3],
+        //                        "sortable": false
+        //                    }
+        //                ],
+        //                "language": {
+        //                    searchPlaceholder: "Search Precint or Cluster"
+        //                },
+        //            });
+        //
+        //            $('#tbl_2').DataTable({
+        //                "pageLength": 7,
+        //                "dom": 't',
+        //                "order" : [[ 3, "desc" ]],
+        //                "columnDefs": [
+        //                    {
+        //                        "targets": [0,1,2,3],
+        //                        "sortable": false
+        //                    }
+        //                ],
+        //                "language": {
+        //                    searchPlaceholder: "Search Precint or Cluster"
+        //                },
+        //            });
+        //
+        //            $('#tbl_3').DataTable({
+        //                "pageLength": 1,
+        //                "dom": 't',
+        //                "order" : [[ 3, "desc" ]],
+        //                "columnDefs": [
+        //                    {
+        //                        "targets": [0,1,2,3],
+        //                        "sortable": false
+        //                    }
+        //                ],
+        //                "language": {
+        //                    searchPlaceholder: "Search Precint or Cluster"
+        //                },
+        //            });
+        //
+        //            $('#tbl_4').DataTable({
+        //                "pageLength": 7,
+        //                "dom": 't',
+        //                "order" : [[ 3, "desc" ]],
+        //                "columnDefs": [
+        //                    {
+        //                        "targets": [0,1,2,3],
+        //                        "sortable": false
+        //                    }
+        //                ],
+        //                "language": {
+        //                    searchPlaceholder: "Search Precint or Cluster"
+        //                },
+        //            });
+        //        });
+    </script>
+{% endblock %}
+
+

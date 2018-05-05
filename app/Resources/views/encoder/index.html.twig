@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    Home
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <h3><b>Polling Place: </b><span><i>{{ location }}</i></span></h3>
+            <hr>
+            <table id="tbl_precint" class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Precint No.</th>
+                    <th>Cluster No.</th>
+                    {#<th>Clustered Precints</th>#}
+                    <th>Total No. of Registered Voters</th>
+                    <th>Set / Update</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for precint in precints %}
+                    <tr>
+                        <td>{{ precint.number }}</td>
+                        <td>{{ precint.cluster.number }}</td>
+                        <td>{{ precint.totalVoters }}</td>
+                        <td>
+                            <a href="{{ path('encoder_update', {'id': precint.id }) }}" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            {#<table class="table table-hover">#}
+            {#<thead>#}
+            {#<tr>#}
+            {#<th>Cluster No.</th>#}
+            {#<th>Clustered Precints</th>#}
+            {#<th>Total No. of Regular Voters</th>#}
+            {#<th>Set / Update</th>#}
+            {#</tr>#}
+            {#</thead>#}
+            {#<tbody>#}
+            {#{% for cluster in clusters %}#}
+            {#<tr>#}
+            {#<td>{{ cluster.number }}</td>#}
+            {#<td>#}
+            {#{% for precints in cluster.groupPrecints %}#}
+            {#{{ precints }};#}
+            {#{% endfor %}#}
+            {#</td>#}
+            {#<td>{{ cluster.totalVoters }}</td>#}
+            {#<td>#}
+            {#<a href="{{ path('encoder_update', {'id': cluster.id }) }}" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></a>#}
+            {#</td>#}
+            {#</tr>#}
+            {#{% endfor %}#}
+            {#</tbody>#}
+            {#</table>#}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        $(document).ready( function() {
+            $('#tbl_precint').DataTable({
+                "order" : [[ 0, "asc" ]],
+                "columnDefs": [
+                    {
+                        "targets": [2,3],
+                        "searchable": false
+                    },
+                    {
+                        "targets": [3],
+                        "sortable": false
+                    }
+                ],
+                "language": {
+                    searchPlaceholder: "Search Precint or Cluster"
+                },
+            });
+        });
+    </script>
+{% endblock %}
+

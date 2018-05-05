@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    Administrator - Vote Information
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            {#<h2 class="animated bounceInLeft">Welcome, Administrator!</h2>#}
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <h2 class="text-center"><strong>Vote Information</strong></h2>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <h3 style="margin-bottom: 0px;">{{ candidate.name }}</h3>
+                    <h4 style="margin-top: 0px;margin-bottom: 0px;"><b>{{ candidate.position.name }}</b></h4>
+                    <h2 style="margin-top: 5px;"><span class="label label-warning">437 total votes</span></h2>
+                    <hr>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>Precint No.</th>
+                            <th>Total Votes</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
