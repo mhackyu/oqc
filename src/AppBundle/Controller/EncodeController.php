@@ -19,7 +19,9 @@ class EncodeController extends Controller
         $clusters = $em->getRepository('AppBundle:Cluster')
             ->findAll();
         $precints = $em->getRepository('AppBundle:Precint')
-            ->findAll();
+            ->findBy([
+                'location' => $this->getUser()->getLocation()
+            ]);
 
         return $this->render('encoder/index.html.twig', [
             'location' => $this->getUser()->getLocation()->getName(),
@@ -37,6 +39,8 @@ class EncodeController extends Controller
         // Get all candidate and their vote per precint if existing
         $candidates = $em->getRepository('AppBundle:Vote')
             ->getCadidateVoteByPrecint($precint);
+
+//        $this->addFlash('success', 'Successfully');
 
         return $this->render('encoder/update.html.twig', [
             'precint' => $precint,

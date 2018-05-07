@@ -18,7 +18,9 @@ class EncoderTwoController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $clusters = $em->getRepository('AppBundle:Cluster')
-            ->findAll();
+            ->findBy([
+                'location' => $this->getUser()->getLocation()
+            ]);
         $precints = $em->getRepository('AppBundle:Precint')
             ->findAll();
 
