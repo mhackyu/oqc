@@ -26,13 +26,13 @@
                     <table class="table table-bordered">
                         <thead>
                         <tr>
-                            <th>Cluster No.</th>
-                            <th>Total Votes</th>
+                            <th class="bg-primary">Cluster No.</th>
+                            <th class="bg-primary">Votes</th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for cl in cluster.clusters %}
-                            <tr>
+                            <tr class="bg-info">
                                 <td>{{ cl.cl_number }}</td>
                                 <td>{{ cl.votes }}</td>
                             </tr>

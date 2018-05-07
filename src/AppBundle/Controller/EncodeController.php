@@ -40,8 +40,6 @@ class EncodeController extends Controller
         $candidates = $em->getRepository('AppBundle:Vote')
             ->getCadidateVoteByPrecint($precint);
 
-//        $this->addFlash('success', 'Successfully');
-
         return $this->render('encoder/update.html.twig', [
             'precint' => $precint,
             'candidates' => $candidates,
