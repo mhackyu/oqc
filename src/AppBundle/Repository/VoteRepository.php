@@ -110,18 +110,31 @@ class VoteRepository extends  EntityRepository
             ->getResult();
     }
 
-    public function getVotesOfCandidatePerLocation($candidate)
+    public function getVotesOfCandidatePerLocation($candidate, $location)
     {
         return $this->getEntityManager()
             ->createQuery('
-                SELECT pr.number, SUM(v.count) as votes
+                SELECT pr.number as pr_number, SUM(v.count) as votes
                 FROM AppBundle:Vote v
                 JOIN v.precint pr
-                LEFT JOIN pr.location l
-                WHERE v.candidate = :candidate
+                WHERE v.candidate = :candidate AND pr.location = :location
                 GROUP BY pr.number
             ')
             ->setParameter('candidate', $candidate)
+            ->setParameter('location', $location)
             ->getResult();
+    }
+
+    public function getTotalVotesPerCandidate($candidate)
+    {
+        $votes = $this->getEntityManager()
+            ->createQuery('
+                SELECT SUM(v.count)
+                FROM AppBundle:Vote v
+                WHERE v.candidate = :candidate
+            ')
+            ->setParameter('candidate', $candidate)
+            ->getResult();
+        return $votes[0][1];
     }
 }

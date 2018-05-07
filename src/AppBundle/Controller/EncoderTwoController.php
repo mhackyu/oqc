@@ -2,16 +2,17 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Cluster;
 use AppBundle\Entity\Precint;
-use AppBundle\Entity\Vote;
+use AppBundle\Entity\VoteTwo;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class EncodeController extends Controller
+class EncoderTwoController extends Controller
 {
     /**
-     * @Route("/encode", name="encoder_homepage")
+     * @Route("/encode-2", name="encoder_two_homepage")
      */
     public function indexAction()
     {
@@ -21,7 +22,7 @@ class EncodeController extends Controller
         $precints = $em->getRepository('AppBundle:Precint')
             ->findAll();
 
-        return $this->render('encoder/index.html.twig', [
+        return $this->render('encoderTwo/index.html.twig', [
             'location' => $this->getUser()->getLocation()->getName(),
             'clusters' => $clusters,
             'precints' => $precints
@@ -29,47 +30,50 @@ class EncodeController extends Controller
     }
 
     /**
-     * @Route("/encode/{id}/update", name="encoder_update")
+     * @Route("/encode-2/{id}/update", name="encoder_two_update")
      */
-    public function updateAction(Precint $precint)
+    public function updateAction(Cluster $cluster)
     {
         $em = $this->getDoctrine()->getManager();
+        $precints = $em->getRepository('AppBundle:Cluster')
+            ->getAllPrecintOfCluster($cluster);
         // Get all candidate and their vote per precint if existing
-        $candidates = $em->getRepository('AppBundle:Vote')
-            ->getCadidateVoteByPrecint($precint);
+        $candidates = $em->getRepository('AppBundle:VoteTwo')
+            ->getCadidateVoteByCluster($cluster);
 
-        return $this->render('encoder/update.html.twig', [
-            'precint' => $precint,
+        return $this->render('encoderTwo/update.html.twig', [
+            'cluster' => $cluster,
+            'precints' => $precints,
             'candidates' => $candidates,
         ]);
     }
 
     /**
-     * @Route("/encode/add-vote", name="encoder_add_vote")
+     * @Route("/encode-2/add-vote", name="encoder_two_add_vote")
      * TODO: Please validate maximum votes per precints.
      */
     public function addVoteAction(Request $request)
     {
         if ($request->isMethod("POST")) {
             $em = $this->getDoctrine()->getManager();
-            $precint = $em->getRepository('AppBundle:Precint')
-                ->findOneBy(['number' => $request->request->get("precint")]);
+            $cluster = $em->getRepository('AppBundle:Cluster')
+                ->findOneBy(['number' => $request->request->get("cluster")]);
 
             if(!$this->isCsrfTokenValid('new', $request->request->get('voteToken'))) {
                 $this->addFlash('danger', "Can't add votes because of invalid token.");
-                return $this->redirectToRoute('encoder_update', ['id' => $precint->getId()]);
+                return $this->redirectToRoute('encoder_update', ['id' => $cluster->getId()]);
             }
 
             $votes = $request->request->get("votes");
             $user = $this->getUser();
 
-            if ($precint->hasVotes()) {
+            if ($cluster->getIsDone()) {
                 // Update votes of candidates per precint.
                 foreach ($votes as $id => $value) {
                     $candidate = $em->getRepository('AppBundle:Candidate')
                         ->find($id);
                     $vote = $em->getRepository('AppBundle:Vote')
-                        ->findOneBy(['candidate' => $candidate, 'precint' => $precint]);
+                        ->findOneBy(['candidate' => $candidate, 'precint' => $cluster]);
                     $vote->setCount($value);
                 }
                 $this->addFlash('success', 'Votes successfully updated.');
@@ -79,21 +83,21 @@ class EncodeController extends Controller
                 foreach ($votes as $id => $value) {
                     $candidate = $em->getRepository('AppBundle:Candidate')
                         ->find($id);
-                    $vote = New Vote();
-                    $vote->setPrecint($precint);
+                    $vote = New VoteTwo();
+                    $vote->setCluster($cluster);
                     $vote->setUser($user);
                     $vote->setCandidate($candidate);
                     $vote->setCount($value);
                     $em->persist($vote);
                 }
 
-                $precint->setHasVotes(true);
+                $cluster->setIsDone(true);
                 $this->addFlash('success', 'Votes successfully added.');
             }
 
             $em->flush();
         }
 
-        return $this->redirectToRoute("encoder_update", [ 'id' => $precint->getId()]);
+        return $this->redirectToRoute("encoder_two_update", [ 'id' => $cluster->getId()]);
     }
 }

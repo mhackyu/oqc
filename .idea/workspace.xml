@@ -3,11 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="2cbcd0d6-b583-448b-a55e-d995925c7353" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/admin/status.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/admin/status.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/admin/voteInfo.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/admin/voteInfo.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/encoder/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/encoder/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/security.yml" afterPath="$PROJECT_DIR$/app/config/security.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/EncodeController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/EncodeController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/SecurityController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/SecurityController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Candidate.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Candidate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Cluster.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Cluster.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/User.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Repository/VoteRepository.php" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/VoteRepository.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,54 +35,21 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="voteInfo.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/adminTwo/voteInfo.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="44" column="123" lean-forward="false" selection-start-line="44" selection-start-column="54" selection-end-line="44" selection-end-column="123" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="voteInfo.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/admin/voteInfo.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="22" column="31" lean-forward="false" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
-              <folding>
-                <element signature="n#style#0;n#h3#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h4#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h2#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="63" column="64" lean-forward="false" selection-start-line="63" selection-start-column="64" selection-end-line="63" selection-end-column="64" />
-              <folding>
-                <element signature="e#40#71#0#PHP" expanded="true" />
-                <element signature="e#460#476#1#PHP" expanded="true" />
-                <element signature="e#549#572#0#PHP" expanded="true" />
-                <element signature="e#865#885#1#PHP" expanded="true" />
-                <element signature="e#942#970#0#PHP" expanded="true" />
-                <element signature="e#1284#1300#1#PHP" expanded="true" />
-                <element signature="e#1764#1780#1#PHP" expanded="true" />
-                <element signature="e#1909#1935#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VoteRepository.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/VoteRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="116" column="33" lean-forward="false" selection-start-line="116" selection-start-column="33" selection-end-line="116" selection-end-column="33" />
-              <folding>
-                <marker date="1525498605065" expanded="true" signature="350:625" ph="SELECT c, v.... AppBundle" />
-                <marker date="1525498605065" expanded="true" signature="867:1149" ph="SELECT c, v.... AppBundle" />
-                <marker date="1525498605065" expanded="true" signature="1390:1652" ph="SELECT c, p.... AppBundle" />
-                <marker date="1525498605065" expanded="true" signature="1848:1961" ph="SELECT SUM(v... AppBundle" />
-                <marker date="1525498605065" expanded="true" signature="2345:2490" ph="SELECT SUM(v... AppBundle" />
-                <marker date="1525498605065" expanded="true" signature="2345:2579" ph="SELECT c.id,... AppBundle" />
-                <marker date="1525498605065" expanded="true" signature="2345:2704" ph="SELECT c.id,... AppBundle" />
-                <marker date="1525498605065" expanded="true" signature="3016:3329" ph="SELECT c.id,... AppBundle" />
-                <marker date="1525498605065" expanded="true" signature="3533:3766" ph="SELECT pr.nu... AppBundle" />
-              </folding>
+            <state relative-caret-position="312">
+              <caret line="39" column="58" lean-forward="false" selection-start-line="39" selection-start-column="58" selection-end-line="39" selection-end-column="58" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -91,6 +67,19 @@
       <find>oq</find>
       <find>save votes</find>
       <find>precint</find>
+      <find>getTotal</find>
+      <find>setV</find>
+      <find>$vote</find>
+      <find>vot</find>
+      <find>setVote</find>
+      <find>Vot</find>
+      <find>body</find>
+      <find>voteTwo</find>
+      <find>voteTWo</find>
+      <find>VoteTow</find>
+      <find>dump</find>
+      <find>isdone</find>
+      <find>setHas</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -105,28 +94,40 @@
         <option value="$PROJECT_DIR$/app/config/parameters.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/UserRepository.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
-        <option value="$PROJECT_DIR$/app/config/security.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Position.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Repository/CandidateRepository.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Cluster.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Candidate.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/User.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/layouts/flash.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Precint.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/encoder/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/SecurityController.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/encoder/update.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/EncodeController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Vote.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Location.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/admin/votesByLoc.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/admin/status.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/admin/index.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/admin/voteInfo.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/EncodeController.php" />
+        <option value="$PROJECT_DIR$/app/config/security.yml" />
+        <option value="$PROJECT_DIR$/app/Resources/views/encoder/index.html.twig" />
+        <option value="$PROJECT_DIR$/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/app/Resources/views/encoderTwo/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Repository/ClusterRepository.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Precint.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Repository/VoteRepository.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Candidate.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/User.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Cluster.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/VoteTwo.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/encoderTwo/update.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/EncoderTwoController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/SecurityController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/adminTwo/index.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/adminTwo/votesByLoc.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Repository/VoteTwoRepository.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/AdminTwoController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/admin/status.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/adminTwo/status.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/adminTwo/voteInfo.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/admin/voteInfo.html.twig" />
       </list>
     </option>
   </component>
@@ -159,6 +160,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -200,6 +202,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="AppBundle" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oqc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oqc" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AppBundle" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Repository" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -305,7 +329,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="encoder" />
+              <option name="myItemId" value="adminTwo" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -356,15 +380,14 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../pmis" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="SearchEverywhereHistoryKey" value="vote re&#9;FILE&#9;file:///home/mhackyu/Documents/oqc/src/AppBundle/Repository/VoteRepository.php&#10;Vot&#9;null&#9;null&#10;Vote&#9;FILE&#9;file:///home/mhackyu/Documents/oqc/src/AppBundle/Repository/VoteRepository.php&#10;vote&#9;FILE&#9;file:///home/mhackyu/Documents/oqc/src/AppBundle/Repository/VoteRepository.php&#10;admin&#9;FILE&#9;file:///home/mhackyu/Documents/oqc/src/AppBundle/Controller/AdminController.php&#10;secu&#9;FILE&#9;file:///home/mhackyu/Documents/oqc/src/AppBundle/Controller/SecurityController.php&#10;sec&#9;FILE&#9;file:///home/mhackyu/Documents/oqc/app/Resources/views/base.html.twig&#10;redi&#9;null&#9;null&#10;encode&#9;FILE&#9;file:///home/mhackyu/Documents/oqc/src/AppBundle/Controller/EncodeController.php&#10;defa&#9;FILE&#9;file:///home/mhackyu/Documents/oqc/src/AppBundle/Controller/DefaultController.php&#10;encod&#9;FILE&#9;file:///home/mhackyu/Documents/oqc/src/AppBundle/Controller/EncodeController.php" />
+    <property name="SearchEverywhereHistoryKey" value="votTwoRe&#9;FILE&#9;file:///home/mhackyu/Documents/oqc/src/AppBundle/Repository/VoteTwoRepository.php&#10;cluster&#9;FILE&#9;file:///home/mhackyu/Documents/oqc/src/AppBundle/Entity/Cluster.php&#10;Locatio&#9;FILE&#9;file:///home/mhackyu/Documents/oqc/src/AppBundle/Entity/Location.php&#10;vote re&#9;FILE&#9;file:///home/mhackyu/Documents/oqc/src/AppBundle/Repository/VoteRepository.php&#10;Vot&#9;null&#9;null&#10;Vote&#9;FILE&#9;file:///home/mhackyu/Documents/oqc/src/AppBundle/Repository/VoteRepository.php&#10;vote&#9;FILE&#9;file:///home/mhackyu/Documents/oqc/src/AppBundle/Repository/VoteRepository.php&#10;admin&#9;FILE&#9;file:///home/mhackyu/Documents/oqc/src/AppBundle/Controller/AdminController.php&#10;secu&#9;FILE&#9;file:///home/mhackyu/Documents/oqc/src/AppBundle/Controller/SecurityController.php&#10;sec&#9;FILE&#9;file:///home/mhackyu/Documents/oqc/app/Resources/views/base.html.twig&#10;redi&#9;null&#9;null&#10;encode&#9;FILE&#9;file:///home/mhackyu/Documents/oqc/src/AppBundle/Controller/EncodeController.php&#10;defa&#9;FILE&#9;file:///home/mhackyu/Documents/oqc/src/AppBundle/Controller/DefaultController.php&#10;encod&#9;FILE&#9;file:///home/mhackyu/Documents/oqc/src/AppBundle/Controller/EncodeController.php" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -470,12 +493,13 @@
       <workItem from="1525401115689" duration="7031000" />
       <workItem from="1525410961368" duration="6565000" />
       <workItem from="1525417693434" duration="8661000" />
-      <workItem from="1525485932306" duration="12176000" />
+      <workItem from="1525485932306" duration="15340000" />
+      <workItem from="1525668942036" duration="9314000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57909000" />
+    <option name="totallyTimeSpent" value="70387000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-11" width="1368" height="780" extended-state="6" />
@@ -511,149 +535,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/encoder/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
-          <caret line="25" column="42" lean-forward="false" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Position.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2522">
-          <caret line="103" column="0" lean-forward="false" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
-          <folding>
-            <element signature="e#119#151#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/EncodeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="36" column="39" lean-forward="false" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
-          <folding>
-            <element signature="e#40#69#0#PHP" expanded="false" />
-            <element signature="e#501#520#1#PHP" expanded="false" />
-            <element signature="e#586#605#1#PHP" expanded="false" />
-            <element signature="e#662#687#0#PHP" expanded="false" />
-            <element signature="e#1145#1161#1#PHP" expanded="false" />
-            <element signature="e#1298#1324#0#PHP" expanded="false" />
-            <element signature="e#1781#1800#1#PHP" expanded="false" />
-            <element signature="e#2102#2118#0#PHP" expanded="true" />
-            <element signature="e#2461#2482#1#PHP" expanded="false" />
-            <element signature="e#2568#2584#1#PHP" expanded="false" />
-            <element signature="e#3005#3026#1#PHP" expanded="false" />
-            <element signature="e#3563#3579#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/CandidateRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
-          <folding>
-            <marker date="1525334550138" expanded="true" signature="270:419" ph="SELECT c, p.... AppBundle" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1196">
-          <caret line="46" column="40" lean-forward="false" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
-          <folding>
-            <element signature="e#1952#1960#0#Twig" expanded="true" />
-            <element signature="e#2094#2108#0#Twig" expanded="true" />
-            <element signature="e#2166#2189#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1118">
-          <caret line="43" column="62" lean-forward="false" selection-start-line="43" selection-start-column="62" selection-end-line="43" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/encoder/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="24" column="84" lean-forward="false" selection-start-line="24" selection-start-column="84" selection-end-line="24" selection-end-column="84" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Cluster.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1144">
-          <caret line="49" column="30" lean-forward="false" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1040">
-          <caret line="40" column="33" lean-forward="false" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
-          <folding>
-            <element signature="e#40#69#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Location.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="806">
-          <caret line="36" column="81" lean-forward="false" selection-start-line="36" selection-start-column="81" selection-end-line="36" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4836">
-          <caret line="187" column="0" lean-forward="false" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/EncodeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="754">
-          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-          <folding>
-            <element signature="e#40#69#0#PHP" expanded="false" />
-            <element signature="e#501#520#1#PHP" expanded="false" />
-            <element signature="e#586#605#1#PHP" expanded="false" />
-            <element signature="e#662#687#0#PHP" expanded="false" />
-            <element signature="e#1145#1161#1#PHP" expanded="false" />
-            <element signature="e#1298#1324#0#PHP" expanded="false" />
-            <element signature="e#1781#1800#1#PHP" expanded="false" />
-            <element signature="e#2102#2118#0#PHP" expanded="true" />
-            <element signature="e#2461#2482#1#PHP" expanded="false" />
-            <element signature="e#2568#2584#1#PHP" expanded="false" />
-            <element signature="e#3005#3026#1#PHP" expanded="false" />
-            <element signature="e#3563#3579#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#1952#1960#0#Twig" expanded="true" />
-            <element signature="e#2094#2108#0#Twig" expanded="true" />
-            <element signature="e#2166#2189#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/security.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -689,7 +570,7 @@
         <state relative-caret-position="884">
           <caret line="34" column="7" lean-forward="false" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
           <folding>
-            <element signature="e#1336#1352#1#PHP" expanded="false" />
+            <element signature="e#1525#1541#1#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -755,20 +636,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1118">
-          <caret line="43" column="62" lean-forward="false" selection-start-line="43" selection-start-column="62" selection-end-line="43" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Position.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2522">
@@ -783,14 +650,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="10" column="2" lean-forward="true" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Cluster.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4186">
-          <caret line="166" column="19" lean-forward="false" selection-start-line="166" selection-start-column="19" selection-end-line="166" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -816,188 +675,341 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/CandidateRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="12" column="16" lean-forward="true" selection-start-line="12" selection-start-column="16" selection-end-line="15" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Location.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="23" column="7" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config_dev.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/encoder/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="60" column="14" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="12" column="11" lean-forward="true" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/encoder/update.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="78" column="40" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/encoderTwo/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="31" column="78" lean-forward="true" selection-start-line="31" selection-start-column="78" selection-end-line="31" selection-end-column="78" />
+          <folding>
+            <element signature="e#1133#1151#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Precint.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="153" column="21" lean-forward="false" selection-start-line="153" selection-start-column="21" selection-end-line="153" selection-end-column="21" />
+        <state relative-caret-position="-1860">
+          <caret line="81" column="38" lean-forward="true" selection-start-line="81" selection-start-column="38" selection-end-line="81" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Candidate.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="15" column="31" lean-forward="true" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+        <state relative-caret-position="359">
+          <caret line="47" column="21" lean-forward="true" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="225" column="0" lean-forward="false" selection-start-line="225" selection-start-column="0" selection-end-line="225" selection-end-column="0" />
+        <state relative-caret-position="-1617">
+          <caret line="42" column="22" lean-forward="true" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/SecurityController.php">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/VoteTwo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="41" column="40" lean-forward="true" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
-          <folding>
-            <element signature="e#1336#1352#1#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="21" column="5" lean-forward="false" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-          <folding>
-            <element signature="e#40#69#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/CandidateRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="12" column="16" lean-forward="true" selection-start-line="12" selection-start-column="16" selection-end-line="15" selection-end-column="48" />
-          <folding>
-            <marker date="1525334550138" expanded="true" signature="270:419" ph="SELECT c, p.... AppBundle" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/encoder/update.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="71" column="19" lean-forward="false" selection-start-line="17" selection-start-column="12" selection-end-line="71" selection-end-column="19" />
-          <folding>
-            <element signature="e#755#771#0#Twig" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/encoder/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="66" column="8" lean-forward="false" selection-start-line="66" selection-start-column="8" selection-end-line="83" selection-end-column="11" />
+        <state relative-caret-position="272">
+          <caret line="144" column="0" lean-forward="true" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/ClusterRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="19" column="14" lean-forward="false" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+          <folding>
+            <marker date="1525673852027" expanded="true" signature="348:441" ph="SELECT p FRO... AppBundle" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Cluster.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="129" column="29" lean-forward="false" selection-start-line="129" selection-start-column="23" selection-end-line="129" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/EncoderTwoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="55" column="5" lean-forward="false" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+          <folding>
+            <element signature="e#40#69#0#PHP" expanded="true" />
+            <element signature="e#705#733#0#PHP" expanded="true" />
+            <element signature="e#1127#1146#1#PHP" expanded="true" />
+            <element signature="e#1305#1324#1#PHP" expanded="true" />
+            <element signature="e#1406#1435#0#PHP" expanded="true" />
+            <element signature="e#1905#1924#1#PHP" expanded="true" />
+            <element signature="e#2226#2242#0#PHP" expanded="true" />
+            <element signature="e#3689#3709#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/EncodeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="64" column="44" lean-forward="false" selection-start-line="64" selection-start-column="44" selection-end-line="64" selection-end-column="44" />
+        <state relative-caret-position="1546">
+          <caret line="97" column="5" lean-forward="false" selection-start-line="46" selection-start-column="4" selection-end-line="97" selection-end-column="5" />
           <folding>
-            <element signature="e#2102#2118#0#PHP" expanded="true" />
+            <element signature="e#2017#2033#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/encoderTwo/update.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="21" column="38" lean-forward="false" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
+          <folding>
+            <element signature="e#762#782#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/SecurityController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="584">
+          <caret line="47" column="9" lean-forward="false" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+          <folding>
+            <element signature="e#1680#1700#1#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/admin/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="832">
+          <caret line="32" column="24" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Vote.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="43" column="18" lean-forward="false" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Location.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="50" column="17" lean-forward="false" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
+        <state relative-caret-position="221">
+          <caret line="131" column="5" lean-forward="true" selection-start-line="131" selection-start-column="5" selection-end-line="131" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="48" column="32" lean-forward="false" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="32" />
+        <state relative-caret-position="284">
+          <caret line="50" column="32" lean-forward="false" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
           <folding>
             <element signature="e#1952#1960#0#Twig" expanded="true" />
-            <element signature="e#2094#2108#0#Twig" expanded="true" />
-            <element signature="e#2166#2189#0#Twig" expanded="true" />
+            <element signature="e#2127#2141#0#Twig" expanded="true" />
+            <element signature="e#2199#2222#0#Twig" expanded="true" />
+            <element signature="e#2399#2417#0#Twig" expanded="true" />
+            <element signature="e#2475#2502#0#Twig" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/admin/votesByLoc.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="37" lean-forward="false" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+        <state relative-caret-position="104">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding>
             <element signature="e#913#943#0#Twig" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/admin/status.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/VoteRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="46" column="41" lean-forward="false" selection-start-line="46" selection-start-column="41" selection-end-line="46" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/admin/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="43" column="51" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
+        <state relative-caret-position="194">
+          <caret line="127" column="0" lean-forward="false" selection-start-line="127" selection-start-column="0" selection-end-line="138" selection-end-column="5" />
           <folding>
-            <element signature="e#1848#1863#0#Twig" expanded="true" />
+            <marker date="1525674813901" expanded="true" signature="350:625" ph="SELECT c, v.... AppBundle" />
+            <marker date="1525674813901" expanded="true" signature="867:1149" ph="SELECT c, v.... AppBundle" />
+            <marker date="1525674813901" expanded="true" signature="1390:1652" ph="SELECT c, p.... AppBundle" />
+            <marker date="1525674813901" expanded="true" signature="1848:1961" ph="SELECT SUM(v... AppBundle" />
+            <marker date="1525674813901" expanded="true" signature="2345:2490" ph="SELECT SUM(v... AppBundle" />
+            <marker date="1525674813901" expanded="true" signature="2345:2579" ph="SELECT c.id,... AppBundle" />
+            <marker date="1525674813901" expanded="true" signature="2345:2704" ph="SELECT c.id,... AppBundle" />
+            <marker date="1525674813901" expanded="true" signature="3016:3329" ph="SELECT c.id,... AppBundle" />
+            <marker date="1525674813901" expanded="true" signature="3544:3760" ph="SELECT pr.nu... AppBundle" />
+            <marker date="1525674813901" expanded="true" signature="3544:3778" ph="SELECT l, pr... AppBundle" />
+            <marker date="1525674813901" expanded="true" signature="4081:4185" ph="SELECT SUM(v... AppBundle" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/admin/voteInfo.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="22" column="31" lean-forward="false" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+        <state relative-caret-position="130">
+          <caret line="12" column="7" lean-forward="false" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
           <folding>
-            <element signature="n#style#0;n#h3#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h4#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h2#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#473#480#1#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/adminTwo/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="44" column="162" lean-forward="true" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="162" />
+          <folding>
+            <element signature="e#1848#1867#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/adminTwo/votesByLoc.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="12" column="35" lean-forward="false" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
+          <folding>
+            <element signature="e#949#983#0#Twig" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="63" column="64" lean-forward="false" selection-start-line="63" selection-start-column="64" selection-end-line="63" selection-end-column="64" />
+        <state relative-caret-position="455">
+          <caret line="54" column="5" lean-forward="true" selection-start-line="40" selection-start-column="4" selection-end-line="54" selection-end-column="5" />
           <folding>
-            <element signature="e#40#71#0#PHP" expanded="true" />
             <element signature="e#460#476#1#PHP" expanded="true" />
-            <element signature="e#549#572#0#PHP" expanded="true" />
-            <element signature="e#865#885#1#PHP" expanded="true" />
-            <element signature="e#942#970#0#PHP" expanded="true" />
-            <element signature="e#1284#1300#1#PHP" expanded="true" />
-            <element signature="e#1764#1780#1#PHP" expanded="true" />
-            <element signature="e#1909#1935#0#PHP" expanded="true" />
+            <element signature="e#1402#1426#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/VoteRepository.php">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/admin/status.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="116" column="33" lean-forward="false" selection-start-line="116" selection-start-column="33" selection-end-line="116" selection-end-column="33" />
+        <state relative-caret-position="234">
+          <caret line="45" column="51" lean-forward="false" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/VoteTwoRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="74" column="40" lean-forward="false" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="40" />
           <folding>
-            <marker date="1525498605065" expanded="true" signature="350:625" ph="SELECT c, v.... AppBundle" />
-            <marker date="1525498605065" expanded="true" signature="867:1149" ph="SELECT c, v.... AppBundle" />
-            <marker date="1525498605065" expanded="true" signature="1390:1652" ph="SELECT c, p.... AppBundle" />
-            <marker date="1525498605065" expanded="true" signature="1848:1961" ph="SELECT SUM(v... AppBundle" />
-            <marker date="1525498605065" expanded="true" signature="2345:2490" ph="SELECT SUM(v... AppBundle" />
-            <marker date="1525498605065" expanded="true" signature="2345:2579" ph="SELECT c.id,... AppBundle" />
-            <marker date="1525498605065" expanded="true" signature="2345:2704" ph="SELECT c.id,... AppBundle" />
-            <marker date="1525498605065" expanded="true" signature="3016:3329" ph="SELECT c.id,... AppBundle" />
-            <marker date="1525498605065" expanded="true" signature="3533:3766" ph="SELECT pr.nu... AppBundle" />
+            <marker date="1525678202572" expanded="true" signature="351:629" ph="SELECT c, v.... AppBundle" />
+            <marker date="1525678202572" expanded="true" signature="939:1255" ph="SELECT c.id,... AppBundle" />
+            <marker date="1525678202572" expanded="true" signature="1550:1912" ph="SELECT c.id,... AppBundle" />
+            <marker date="1525678202572" expanded="true" signature="2177:2414" ph="SELECT pr.nu... AppBundle" />
+            <marker date="1525678202572" expanded="true" signature="2717:2824" ph="SELECT SUM(v... AppBundle" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AdminTwoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="48" column="31" lean-forward="false" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
+          <folding>
+            <element signature="e#40#71#0#PHP" expanded="true" />
+            <element signature="e#469#488#1#PHP" expanded="true" />
+            <element signature="e#561#587#0#PHP" expanded="true" />
+            <element signature="e#963#994#0#PHP" expanded="true" />
+            <element signature="e#1314#1333#1#PHP" expanded="true" />
+            <element signature="e#1435#1462#0#PHP" expanded="true" />
+            <element signature="e#1803#1822#1#PHP" expanded="true" />
+            <element signature="e#2055#2074#1#PHP" expanded="true" />
+            <element signature="e#2606#2625#1#PHP" expanded="true" />
+            <element signature="e#2751#2780#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/adminTwo/status.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-104">
+          <caret line="17" column="46" lean-forward="false" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="46" />
+          <folding>
+            <element signature="e#1915#1934#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/adminTwo/voteInfo.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="44" column="123" lean-forward="false" selection-start-line="44" selection-start-column="54" selection-end-line="44" selection-end-column="123" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/admin/voteInfo.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="39" column="58" lean-forward="false" selection-start-line="39" selection-start-column="58" selection-end-line="39" selection-end-column="58" />
+          <folding />
         </state>
       </provider>
     </entry>

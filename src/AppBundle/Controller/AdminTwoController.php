@@ -7,25 +7,25 @@ use AppBundle\Entity\Location;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class AdminController extends Controller
+class AdminTwoController extends Controller
 {
     /**
-     * @Route("/admin", name="admin_homepage")
+     * @Route("/admin-2", name="admin_two_homepage")
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $candidates = $em->getRepository('AppBundle:Vote')
+        $candidates = $em->getRepository('AppBundle:VoteTwo')
             ->getVotesOfAllCandidates();
 
-        return $this->render('admin/index.html.twig', [
+        return $this->render('adminTwo/index.html.twig', [
             'candidates' => $candidates
         ]);
     }
 
     /**
-     * @Route("/admin/votes-by-location", name="admin_votes_by_location")
+     * @Route("/admin-2/votes-by-location", name="admin_two_votes_by_location")
      */
     public function votesByLocationAction()
     {
@@ -33,63 +33,65 @@ class AdminController extends Controller
         $locations = $em->getRepository('AppBundle:Location')
             ->findAll();
 
-        return $this->render('admin/votesByLoc.html.twig', [
+        return $this->render('adminTwo/votesByLoc.html.twig', [
             'locations' => $locations
         ]);
     }
 
     /**
-     * @Route("/admin/{id}/votes-by-location", name="admin_votes_by_location_status")
+     * @Route("/admin-2/{id}/votes-by-location", name="admin_two_votes_by_location_status")
      */
     public function statusAction(Location $location)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $candidates = $em->getRepository('AppBundle:Vote')
+        $candidates = $em->getRepository('AppBundle:VoteTwo')
             ->getVotesOfAllCandidatesPerLocation($location->getId());
 
-        return $this->render('admin/status.html.twig', [
+        return $this->render('adminTwo/status.html.twig', [
             'location' => $location,
             'candidates' => $candidates
         ]);
     }
 
     /**
-     * @Route("/admin/{id}/vote-information", name="admin_vote_info")
+     * @Route("/admin-2/{id}/vote-information", name="admin_two_vote_info")
      */
     public function voteInfoAction(Candidate $candidate)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $saes = $em->getRepository('AppBundle:Vote')
+        $saes = $em->getRepository('AppBundle:VoteTwo')
             ->getVotesOfCandidatePerLocation($candidate->getId(),1);
-        $adelina = $em->getRepository('AppBundle:Vote')
+        $adelina = $em->getRepository('AppBundle:VoteTwo')
             ->getVotesOfCandidatePerLocation($candidate->getId(),2);
-        $usp = $em->getRepository('AppBundle:Vote')
+        $usp = $em->getRepository('AppBundle:VoteTwo')
             ->getVotesOfCandidatePerLocation($candidate->getId(),3);
 
-        $precints = [
+        $clusters = [
             [
                 'loc_name' => 'San Antonio',
-                'precints' => $saes
+                'clusters' => $saes
             ],
             [
                 'loc_name' => 'Adelina I Elementary School',
-                'precints' => $adelina
+                'clusters' => $adelina
             ],
             [
                 'loc_name' => 'United San Pedro Subdivision Multi-purpose Hall',
-                'precints' => $usp
+                'clusters' => $usp
             ],
 
         ];
 
-        $totalVotes = $em->getRepository('AppBundle:Vote')
+        $totalVotes = $em->getRepository('AppBundle:VoteTwo')
             ->getTotalVotesPerCandidate($candidate->getId());
 
-        return $this->render('admin/voteInfo.html.twig', [
+//        dump($clusters);die;
+
+        return $this->render('adminTwo/voteInfo.html.twig', [
             'candidate' => $candidate,
-            'precints' => $precints,
+            'clusters' => $clusters,
             'totalVotes' => $totalVotes
         ]);
     }

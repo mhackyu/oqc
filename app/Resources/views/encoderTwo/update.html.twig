@@ -1,0 +1,128 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    Update Votes
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <h4><b>Polling Place: </b><span><i>{{ cluster.location.name }}</i></span></h4>
+            <h4><b>Cluster No.: </b><span><i>{{ cluster.number }}</i></span>
+                <b>Precint Nos.: </b><span><i>
+                        {% for precint in precints %}
+                            {{ precint.number }};
+                        {% endfor %}
+                    </i></span>
+            </h4>
+
+            <h4><b>Total No. of Registered Voters: </b><span><i>{{ cluster.totalVoters }}</i></span></h4>
+            <hr>
+
+            {% set cnt = 1 %}
+            <form id="frmVote" action="{{ path('encoder_two_add_vote') }}" method="post">
+                <input type="hidden" name="cluster" value="{{ cluster.number }}">
+                <input type="hidden" name="voteToken" value="{{ csrf_token('new') }}">
+                {% for candidate in candidates %}
+                {#{{ dump(candidate.id) }}#}
+                {% if cnt == candidate.id %}
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Nickname</th>
+                        <th>Add Vote</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <h4 class="text-center"><b>{{ candidate.name }}</b></h4>
+                    <hr>
+                    {% set cnt = cnt + 1 %}
+                    {% endif %}
+                    <tr>
+                        <td>{{ candidate[0].name }}</td>
+                        <td>{{ candidate[0].nickname }}</td>
+                        <td>
+                            <input name="votes[{{ candidate[0].id }}]" type="number" class="form-control" placeholder="0 - {{ cluster.totalVoters }}" min="0" max="{{ cluster.totalVoters }}" required value="{{ candidate['vote'] }}">
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <div class="pull-right">
+                    <button type="submit" class="btn btn-primary btn-lg" style="margin-bottom: 30px;"><i class="fa fa-floppy-o"></i> Save Votes</button>
+                </div>
+
+                <div class="modal fade" id="modal-save">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">Confirm</h4>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to save?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        $(document).ready( function () {
+
+            // Add Item Validation
+//            $('#frmVote').formValidation({
+//                framework: 'bootstrap',
+//                icon: {
+//                    valid: 'glyphicon glyphicon-ok',
+//                    invalid: 'glyphicon glyphicon-remove',
+//                    validating: 'glyphicon glyphicon-refresh'
+//                }
+//            });
+
+        });
+    </script>
+    {#<script> #}
+    {#//        $(document).ready( function() {#}
+    {#//            $('#frmVote').formValidation({#}
+    {#//                framework: 'bootstrap',#}
+    {#//                icon: {#}
+    {#//                    valid: 'glyphicon glyphicon-ok',#}
+    {#//                    invalid: 'glyphicon glyphicon-remove',#}
+    {#//                    validating: 'glyphicon glyphicon-refresh'#}
+    {#//                }#}
+    {#//            });#}
+    {#//            $('#frmVote').formValidation({#}
+    {#//                framework: 'bootstrap',#}
+    {#//                icon: {#}
+    {#//                    valid: 'glyphicon glyphicon-ok',#}
+    {#//                    invalid: 'glyphicon glyphicon-remove',#}
+    {#//                    validating: 'glyphicon glyphicon-refresh'#}
+    {#//                },#}
+    {#//                fields: {#}
+    {#//                    votes: {#}
+    {#//                        validators: {#}
+    {#//                            notEmpty: {#}
+    {#//                                message: 'The amount is required'#}
+    {#//                            },#}
+    {#//                            numeric: {#}
+    {#//                                message: "Please input a numeric value."#}
+    {#//                            }#}
+    {#//                        }#}
+    {#//                    }#}
+    {#//                }#}
+    {#//            });#}
+    {#});#}
+    {#</script>#}
+{% endblock %}
+
+
+

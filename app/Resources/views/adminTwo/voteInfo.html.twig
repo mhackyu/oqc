@@ -19,28 +19,30 @@
                     <h4 style="margin-top: 0px;margin-bottom: 0px;"><b>{{ candidate.position.name }}</b></h4>
                     <h2 style="margin-top: 5px;"><span class="label label-warning">{{ totalVotes|number_format }} total votes</span></h2>
                     <hr style="margin-top: 50px;">
-                    {% for precint in precints %}
+
+
+                    {% for cluster in clusters %}
                     {% set totalPrecintVotes = 0 %}
                     <table class="table table-bordered">
                         <thead>
                         <tr>
-                            <th>Precint No.</th>
+                            <th>Cluster No.</th>
                             <th>Total Votes</th>
                         </tr>
                         </thead>
                         <tbody>
-                        {% for pr in precint.precints %}
+                        {% for cl in cluster.clusters %}
                             <tr>
-                                <td>{{ pr.pr_number }}</td>
-                                <td>{{ pr.votes }}</td>
+                                <td>{{ cl.cl_number }}</td>
+                                <td>{{ cl.votes }}</td>
                             </tr>
-                            {% set totalPrecintVotes = totalPrecintVotes + pr.votes %}
+                            {% set totalPrecintVotes = totalPrecintVotes + cl.votes %}
                         {% else %}
                             <tr>
                                 <td colspan="2">No votes found.</td>
                             </tr>
                         {% endfor %}
-                        <h4><b>{{ precint.loc_name }} <span class="label label-info">{{ totalPrecintVotes }} vote(s)</span></b></h4>
+                        <h4><b>{{ cluster.loc_name }} <span class="label label-info">{{ totalPrecintVotes }} vote(s)</span></b></h4>
                         {% endfor %}
                         </tbody>
                     </table>

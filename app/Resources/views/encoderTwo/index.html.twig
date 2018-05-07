@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    Home
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <h3><b>Polling Place: </b><span><i>{{ location }}</i></span></h3>
+            <hr>
+            <table id="tbl_cluster" class="table table-hover">
+            <thead>
+            <tr>
+                <th>Cluster No.</th>
+                {#<th>Clustered Precints</th>#}
+                <th>Total No. of Regular Voters</th>
+                <th>Set / Update</th>
+            </tr>
+            </thead>
+                <tbody>
+                {% for cluster in clusters %}
+                    <tr {% if cluster.isDone %} class="bg-success" {% endif %}>
+                        <td>{{ cluster.number }}</td>
+                        {#<td>#}
+                            {#{% for precints in cluster.groupPrecints %}#}
+                                {#{{ precints }};#}
+                            {#{% endfor %}#}
+                        {#</td>#}
+                        <td>{{ cluster.totalVoters }}</td>
+                        <td>
+                            <a href="{{ path('encoder_two_update', {'id': cluster.id }) }}" class="btn btn-primary"><i
+                                        class="fa fa-pencil-square-o"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        $(document).ready( function() {
+            $('#tbl_cluster').DataTable({
+                "order" : [[ 0, "asc" ]],
+                "columnDefs": [
+                    {
+                        "targets": [1,2],
+                        "searchable": false
+                    },
+                    {
+                        "targets": [2],
+                        "sortable": false
+                    }
+                ],
+                "language": {
+                    searchPlaceholder: "Search Precint or Cluster"
+                },
+            });
+        });
+    </script>
+{% endblock %}
+

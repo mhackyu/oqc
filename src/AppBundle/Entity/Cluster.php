@@ -12,7 +12,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ClusterRepository")
  * @ORM\Table(name="cluster")
  */
 class Cluster
@@ -49,6 +49,11 @@ class Cluster
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Precint", mappedBy="cluster")
      */
     private $precint;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\VoteTwo", mappedBy="cluster")
+     */
+    private $voteTwo;
 
     public function __construct()
     {
@@ -167,6 +172,21 @@ class Cluster
         $this->precint = $precint;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getVoteTwo()
+    {
+        return $this->voteTwo;
+    }
+
+    /**
+     * @param mixed $voteTwo
+     */
+    public function setVoteTwo($voteTwo)
+    {
+        $this->voteTwo = $voteTwo;
+    }
 
 
 }

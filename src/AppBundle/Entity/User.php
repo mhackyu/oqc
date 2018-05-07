@@ -47,6 +47,11 @@ class User implements UserInterface, \Serializable
      */
     private $vote;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\VoteTwo", mappedBy="user")
+     */
+    private $voteTwo;
+
     public function __construct()
     {
         $this->isActive = true;
@@ -223,5 +228,20 @@ class User implements UserInterface, \Serializable
         $this->vote = $vote;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getVoteTwo()
+    {
+        return $this->voteTwo;
+    }
+
+    /**
+     * @param mixed $voteTwo
+     */
+    public function setVoteTwo($voteTwo)
+    {
+        $this->voteTwo = $voteTwo;
+    }
 
 }

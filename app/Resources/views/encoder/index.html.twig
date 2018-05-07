@@ -20,7 +20,7 @@
                 </thead>
                 <tbody>
                 {% for precint in precints %}
-                    <tr>
+                    <tr {% if precint.hasVotes %} class="bg-success" {% endif %}>
                         <td>{{ precint.number }}</td>
                         <td>{{ precint.cluster.number }}</td>
                         <td>{{ precint.totalVoters }}</td>

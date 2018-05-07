@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-    Administrator - Vote Status in {{ location.name }}
+    Administrator - Overall Ranking
 {% endblock %}
 
 {% block body %}
     <div class="container">
         <div class="row">
             {#<h2 class="animated bounceInLeft">Welcome, Administrator!</h2>#}
-            <h2 class="text-center"><strong>Vote Status in {{ location.name }}</strong></h2>
+            <h2 class="text-center"><strong>Overall Ranking</strong></h2>
             {#<hr>#}
             <div class="col-md-12">
                 {% set cnt = 1 %}
@@ -42,24 +42,62 @@
                         <td>{{ candidate.name }}</td>
                         <td>{{ candidate.nickname }}</td>
                         <td>{{ candidate.votes }}</td>
-                        <td>
-                            <a href="{{ path('admin_vote_info', {'id': candidate.id}) }}" class="btn btn-warning"><i class="fa fa-exclamation-circle"></i></a>
-                        </td>
+                        <td><a href="{{ path('admin_two_vote_info', {'id': candidate.id}) }}" class="btn btn-warning"><i class="fa fa-exclamation-circle"></i></a></td>
                     </tr>
                     {% set rank = rank + 1 %}
                     {#{% set pos = pos + 1 %}#}
-                    {% else %}
-                        <div class="alert alert-warning animated bounceIn">
-                            {#<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>#}
-                            <strong>Ooops!</strong> No Votes found in {{ location.name }}
-                        </div>
                     {% endfor %}
                     </tbody>
                 </table>
             </div>
+            {#<div class="col-md-5">#}
+            {#<table class="table table-hover animated fadeIn">#}
+            {#<thead>#}
+            {#<tr>#}
+            {#<th>View Votes By Location</th>#}
+            {#<th>Status</th>#}
+            {#</tr>#}
+            {#</thead>#}
+            {#<tbody>#}
+            {#{% for location in locations %}#}
+            {#<tr>#}
+            {#{% if location.name != "City Hall" %}#}
+            {#<td>{{ location.name }}</td>#}
+            {#<td>#}
+            {#<a href="{{ path('admin_status', {'id': location.id}) }}" class="btn btn-primary"><i class="fa fa-eye"></i> View</a>#}
+            {#</td>#}
+            {#{% endif %}#}
+            {#</tr>#}
+            {#{% endfor %}#}
+            {#</tbody>#}
+            {#</table>#}
+            {#</div>#}
         </div>
     </div>
 {% endblock %}
+
+{#{% block javascript %}#}
+    {#<script>#}
+        {#$(document).ready( function() {#}
+            {#$('#tbl_precint').DataTable({#}
+                {#"order" : [[ 0, "asc" ]],#}
+                {#"columnDefs": [#}
+                    {#{#}
+                        {#"targets": [2,3],#}
+                        {#"searchable": false#}
+                    {#},#}
+                    {#{#}
+                        {#"targets": [3],#}
+                        {#"sortable": false#}
+                    {#}#}
+                {#],#}
+                {#"language": {#}
+                    {#searchPlaceholder: "Search Precint or Cluster"#}
+                {#},#}
+            {#});#}
+        {#});#}
+    {#</script>#}
+{#{% endblock %}#}
 
 {% block javascript %}
     <script>

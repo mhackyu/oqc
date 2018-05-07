@@ -36,12 +36,18 @@ class SecurityController extends Controller
      */
     public function redirectAction()
     {
-        if ($this->getUser()->getRoles()[0] == "ROLE_ENCODER") {
+        $version = $this->getParameter('version');
+        if ($this->getUser()->getRoles()[0] == "ROLE_ENCODER" && $version == 1) {
             return $this->redirectToRoute('encoder_homepage');
         }
-        else if ($this->getUser()->getRoles()[0] == "ROLE_ADMIN"){
-//            return $this->redirectToRoute('admin_index');
+        else if ($this->getUser()->getRoles()[0] == "ROLE_ENCODER" && $version == 2) {
+            return $this->redirectToRoute('encoder_two_homepage');
+        }
+        else if ($this->getUser()->getRoles()[0] == "ROLE_ADMIN" && $version == 1){
             return $this->redirectToRoute('admin_homepage');
+        }
+        else if ($this->getUser()->getRoles()[0] == "ROLE_ADMIN" && $version == 2){
+            return $this->redirectToRoute('admin_two_homepage');
         }
     }
 

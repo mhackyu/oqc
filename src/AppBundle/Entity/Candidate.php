@@ -36,10 +36,16 @@ class Candidate
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Position", inversedBy="candidate")
      */
     private $position;
+
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Vote", mappedBy="candidate")
      */
     private $vote;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\VoteTwo", mappedBy="candidate")
+     */
+    private $voteTwo;
 
     /**
      * @return mixed
@@ -120,6 +126,23 @@ class Candidate
     {
         $this->vote = $vote;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getVoteTwo()
+    {
+        return $this->voteTwo;
+    }
+
+    /**
+     * @param mixed $voteTwo
+     */
+    public function setVoteTwo($voteTwo)
+    {
+        $this->voteTwo = $voteTwo;
+    }
+
 
 
 }

@@ -43,4 +43,6 @@ security:
         - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/add, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/admin-2, roles: ROLE_ADMIN }
         - { path: ^/encode, roles: ROLE_ENCODER }
+        - { path: ^/encode-2, roles: ROLE_ENCODER }

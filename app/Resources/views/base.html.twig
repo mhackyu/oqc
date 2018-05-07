@@ -41,12 +41,17 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{{ path('redirect') }}">OQC</a>
+        <a class="navbar-brand" href="{{ path('redirect') }}">OQC {{ version }}.0</a>
     </div>
-    {% if is_granted('ROLE_ADMIN') %}
+    {% if is_granted('ROLE_ADMIN') and version == 1 %}
         <ul class="nav navbar-nav">
             <li><a href="{{ path('admin_homepage') }}">Ranking</a></li>
             <li><a href="{{ path('admin_votes_by_location') }}">Votes By Location</a></li>
+        </ul>
+    {% elseif is_granted('ROLE_ADMIN') and version == 2 %}
+        <ul class="nav navbar-nav">
+            <li><a href="{{ path('admin_two_homepage') }}">Ranking</a></li>
+            <li><a href="{{ path('admin_two_votes_by_location') }}">Votes By Location</a></li>
         </ul>
     {% endif %}
 
