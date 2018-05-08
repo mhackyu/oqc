@@ -1,15 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Page Description">
+    <meta name="author" content="mhackyu">
+    {% block stylesheets %}{% endblock %}
+    <title>Login
+    </title>
+
+    {# Datatables #}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap4.min.css">
+    {# Bootstrap #}
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    {# Font Awesome #}
+    <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
+    {# Animate #}
+    <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
+    {# Form Validation CSS #}
+    <link rel="stylesheet" href="{{ asset('vendor/formValidation/css/formValidation.css') }}">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
 {% if error %}
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
-<form action="{{ path('login') }}" method="post">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" />
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="_password" />
-    {#
-    If you want to control the URL the user
-    is redirected to on success (more details below)
-    <input type="hidden" name="_target_path" value="/account" />
-    #}
-    <button type="submit">login</button>
-</form>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4 col-sm-offset-4" style="margin-top: 200px;">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-sign-in" aria-hidden="true"></i> Account Login</h3>
+                </div>
+                <div class="panel-body">
+                    <form action="{{ path('login') }}" method="post" role="form">
+                        <label for="username">Username <i class="fa fa-user" aria-hidden="true"></i></label>
+                        <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Username" />
+                        <label for="password" style="margin-top: 8px;">Password <i class="fa fa-asterisk" aria-hidden="true"></i></label>
+                        <input class="form-control" type="password" id="password" name="_password" placeholder="Password"/>
+                        {#
+                        If you want to control the URL the user
+                        is redirected to on success (more details below)
+                        <input type="hidden" name="_target_path" value="/account" />
+                        #}
+                        <div class="pull-right">
+                            <button type="submit" class="btn btn-info" style="margin-top: 10px;">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+{#<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>#}
+<script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+{#<script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>#}
+{#<script src="{{ asset('js/dataTables.bootstrap.min.js') }}"></script>#}
+{# FormValidation plugin and the class supports validating Bootstrap form #}
+<script src="{{ asset('vendor/formValidation/js/formValidation.min.js') }}"></script>
+<script src="{{ asset('vendor/formValidation/js/framework/bootstrap.min.js') }}"></script>
+{% block javascript %}{% endblock %}
+</body>
+</html>
+
+

@@ -102,6 +102,11 @@
 {% block javascript %}
     <script>
         $(document).ready( function() {
+
+            setTimeout( function () {
+                window.location.reload(1);
+            }, 10000);
+
             $('#tbl_1').DataTable({
                 "order" : [[ 3, "desc" ]],
                 "columnDefs": [
