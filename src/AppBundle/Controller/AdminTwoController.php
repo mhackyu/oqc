@@ -87,7 +87,7 @@ class AdminTwoController extends Controller
         $totalVotes = $em->getRepository('AppBundle:VoteTwo')
             ->getTotalVotesPerCandidate($candidate->getId());
 
-        dump($clusters);die;
+//        dump($clusters);die;
 
         return $this->render('adminTwo/voteInfo.html.twig', [
             'candidate' => $candidate,
