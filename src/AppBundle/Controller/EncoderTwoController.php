@@ -7,6 +7,7 @@ use AppBundle\Entity\Precint;
 use AppBundle\Entity\VoteTwo;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class EncoderTwoController extends Controller
@@ -102,4 +103,5 @@ class EncoderTwoController extends Controller
 
         return $this->redirectToRoute("encoder_two_update", [ 'id' => $cluster->getId()]);
     }
+
 }

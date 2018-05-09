@@ -94,4 +94,18 @@ class VoteTwoRepository extends EntityRepository
             ->getResult();
         return $votes[0][1];
     }
+
+    public function apiGetCadidateVoteByCluster($cluster) {
+        return $this->getEntityManager()
+            ->createQuery('
+                SELECT c.id, c.name, c.nickname, v.count as vote, p.id as pos_id, p.name as pos_name
+                FROM AppBundle:Candidate c
+                LEFT JOIN AppBundle:VoteTwo v
+                WHERE c.id = v.candidate AND v.cluster = :cluster
+                JOIN c.position p 
+                ORDER BY p.level ASC, c.name ASC
+            ')
+            ->setParameter('cluster',$cluster )
+            ->getResult();
+    }
 }
