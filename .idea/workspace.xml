@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2cbcd0d6-b583-448b-a55e-d995925c7353" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/encoderTwo/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/encoderTwo/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/EncoderTwoController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/EncoderTwoController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/AdminTwoController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/AdminTwoController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/ApiController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/ApiController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Repository/VoteTwoRepository.php" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/VoteTwoRepository.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,51 +23,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="EncoderTwoController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/EncoderTwoController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="105" column="0" lean-forward="false" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="22" column="18" lean-forward="false" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+            <state relative-caret-position="272">
+              <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
               <folding>
-                <element signature="e#40#69#0#PHP" expanded="true" />
-                <element signature="e#686#705#1#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/encoderTwo/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="45" column="29" lean-forward="false" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VoteTwoRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/VoteTwoRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="100" column="33" lean-forward="false" selection-start-line="100" selection-start-column="33" selection-end-line="100" selection-end-column="33" />
-              <folding>
-                <marker date="1525845636619" expanded="true" signature="351:629" ph="SELECT c, v.... AppBundle" />
-                <marker date="1525845636619" expanded="true" signature="939:1255" ph="SELECT c.id,... AppBundle" />
-                <marker date="1525845636619" expanded="true" signature="1550:1912" ph="SELECT c.id,... AppBundle" />
-                <marker date="1525845636619" expanded="true" signature="2177:2414" ph="SELECT pr.nu... AppBundle" />
-                <marker date="1525845636619" expanded="true" signature="2717:2824" ph="SELECT SUM(v... AppBundle" />
-                <marker date="1525845636619" expanded="true" signature="3100:3423" ph="SELECT c, v.... AppBundle" />
+                <element signature="e#40#71#0#PHP" expanded="true" />
+                <element signature="e#718#737#1#PHP" expanded="true" />
+                <element signature="e#906#925#1#PHP" expanded="true" />
+                <element signature="e#1855#1874#1#PHP" expanded="true" />
+                <element signature="e#2442#2461#1#PHP" expanded="true" />
+                <element signature="e#2982#3003#1#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -121,7 +88,6 @@
         <option value="$PROJECT_DIR$/app/Resources/views/admin/votesByLoc.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/admin/index.html.twig" />
         <option value="$PROJECT_DIR$/app/config/security.yml" />
-        <option value="$PROJECT_DIR$/app/Resources/views/encoder/index.html.twig" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Repository/ClusterRepository.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Precint.php" />
@@ -144,10 +110,11 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/EncodeController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/adminTwo/index.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/security/login.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/AdminTwoController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/EncoderTwoController.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Repository/VoteTwoRepository.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/encoderTwo/index.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/encoder/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Repository/VoteTwoRepository.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/AdminTwoController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/ApiController.php" />
       </list>
     </option>
@@ -266,28 +233,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Entity" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oqc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oqc" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AppBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -325,32 +270,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oqc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oqc" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="security" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -493,12 +412,12 @@
       <workItem from="1525690608895" duration="46000" />
       <workItem from="1525744222148" duration="9280000" />
       <workItem from="1525838228513" duration="611000" />
-      <workItem from="1525843880084" duration="3691000" />
+      <workItem from="1525843880084" duration="10880000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94236000" />
+    <option name="totallyTimeSpent" value="101425000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -664,25 +583,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/encoder/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="60" column="14" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
           <caret line="12" column="11" lean-forward="true" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/encoder/update.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="78" column="40" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -704,13 +609,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1617">
           <caret line="42" column="22" lean-forward="true" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/VoteTwo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="144" column="0" lean-forward="true" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -882,13 +780,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AdminTwoController.php">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/EncoderTwoController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="45" column="20" lean-forward="false" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
-          <folding>
-            <element signature="e#40#71#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="376">
+          <caret line="105" column="0" lean-forward="false" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -900,36 +796,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/EncoderTwoController.php">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/encoder/update.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="105" column="0" lean-forward="false" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+        <state relative-caret-position="208">
+          <caret line="77" column="12" lean-forward="true" selection-start-line="77" selection-start-column="12" selection-end-line="77" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/VoteTwo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1026">
+          <caret line="150" column="32" lean-forward="true" selection-start-line="150" selection-start-column="32" selection-end-line="150" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/VoteTwoRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="100" column="33" lean-forward="false" selection-start-line="100" selection-start-column="33" selection-end-line="100" selection-end-column="33" />
+        <state relative-caret-position="229">
+          <caret line="70" column="5" lean-forward="true" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
           <folding>
-            <marker date="1525845636619" expanded="true" signature="351:629" ph="SELECT c, v.... AppBundle" />
-            <marker date="1525845636619" expanded="true" signature="939:1255" ph="SELECT c.id,... AppBundle" />
-            <marker date="1525845636619" expanded="true" signature="1550:1912" ph="SELECT c.id,... AppBundle" />
-            <marker date="1525845636619" expanded="true" signature="2177:2414" ph="SELECT pr.nu... AppBundle" />
-            <marker date="1525845636619" expanded="true" signature="2717:2824" ph="SELECT SUM(v... AppBundle" />
-            <marker date="1525845636619" expanded="true" signature="3100:3423" ph="SELECT c, v.... AppBundle" />
+            <marker date="1525853745523" expanded="true" signature="351:629" ph="SELECT c, v.... AppBundle" />
+            <marker date="1525853745523" expanded="true" signature="963:1279" ph="SELECT c.id,... AppBundle" />
+            <marker date="1525853745523" expanded="true" signature="1574:1936" ph="SELECT c.id,... AppBundle" />
+            <marker date="1525853745523" expanded="true" signature="2201:2438" ph="SELECT pr.nu... AppBundle" />
+            <marker date="1525853745523" expanded="true" signature="2741:2848" ph="SELECT SUM(v... AppBundle" />
+            <marker date="1525853745523" expanded="true" signature="3250:3573" ph="SELECT c, v.... AppBundle" />
+            <marker date="1525853745523" expanded="true" signature="3966:4101" ph="UPDATE AppBu... " />
+            <marker date="1525853745523" expanded="true" signature="3972:4101" ph="SELECT v FRO... AppBundle" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AdminTwoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="83" column="0" lean-forward="true" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+          <folding>
+            <element signature="e#40#71#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/encoder/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="65" column="12" lean-forward="false" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="22" column="18" lean-forward="false" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+        <state relative-caret-position="272">
+          <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
           <folding>
-            <element signature="e#40#69#0#PHP" expanded="true" />
-            <element signature="e#686#705#1#PHP" expanded="true" />
+            <element signature="e#40#71#0#PHP" expanded="true" />
+            <element signature="e#718#737#1#PHP" expanded="true" />
+            <element signature="e#906#925#1#PHP" expanded="true" />
+            <element signature="e#1855#1874#1#PHP" expanded="true" />
+            <element signature="e#2442#2461#1#PHP" expanded="true" />
+            <element signature="e#2982#3003#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

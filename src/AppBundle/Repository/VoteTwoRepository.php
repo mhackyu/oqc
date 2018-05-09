@@ -27,7 +27,7 @@ class VoteTwoRepository extends EntityRepository
     }
 
     /**
-     * Legit na mag wo-work din to <3
+     * This will get all votes of candidate on all locations.
      * @return array
      */
     public function getVotesOfAllCandidates()
@@ -95,6 +95,11 @@ class VoteTwoRepository extends EntityRepository
         return $votes[0][1];
     }
 
+    /**
+     * API repository to get all votes of candidates per cluster.
+     * @param $cluster
+     * @return array
+     */
     public function apiGetCadidateVoteByCluster($cluster) {
         return $this->getEntityManager()
             ->createQuery('
@@ -106,6 +111,24 @@ class VoteTwoRepository extends EntityRepository
                 ORDER BY p.level ASC, c.name ASC
             ')
             ->setParameter('cluster',$cluster )
+            ->getResult();
+    }
+
+    /**
+     * API repository to update vote of candidate per cluster.
+     * @param $cluster
+     * @return array
+     */
+    public function apiUpdateVoteOfCandidatePerCluster($cluster, $candidate, $count) {
+        return $this->getEntityManager()
+            ->createQuery('
+                UPDATE AppBundle:VoteTwo v
+                SET v.count = :count
+                WHERE v.cluster = :cluster and v.candidate = :candidate
+            ')
+            ->setParameter('cluster', $cluster)
+            ->setParameter('candidate', $candidate)
+            ->setParameter('count', $count)
             ->getResult();
     }
 }
