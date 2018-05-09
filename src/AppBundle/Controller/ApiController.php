@@ -56,6 +56,10 @@ class ApiController extends Controller
                 'isSuccess' => $success
             ]);
         }
+
+        return new JsonResponse([
+            'isSuccess' => 0
+        ]);
     }
 
     /**
