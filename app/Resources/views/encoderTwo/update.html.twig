@@ -19,6 +19,7 @@
             <hr>
 
             {% set cnt = 1 %}
+            {% set isDone = false %}
             <form id="frmVote" action="{{ path('encoder_two_add_vote') }}" method="post">
                 <input type="hidden" name="cluster" value="{{ cluster.number }}">
                 <input type="hidden" name="voteToken" value="{{ csrf_token('new') }}">
@@ -43,19 +44,24 @@
                         <td>{{ candidate[0].name }}</td>
                         <td>{{ candidate[0].nickname }}</td>
                         <td>
-                            {#<input name="votes[{{ candidate[0].id }}]" type="number" class="form-control" placeholder="0 - {{ cluster.totalVoters }}" min="0" max="{{ cluster.totalVoters }}" required value="{{ candidate['vote'] }}"/>#}
+                            {% if not cluster.isDone %}
+                                <input name="votes[{{ candidate[0].id }}]" type="number" class="form-control" placeholder="0 - {{ cluster.totalVoters }}" min="0" max="{{ cluster.totalVoters }}" required value="{{ candidate['vote'] }}"/>
+                            {% else %}
+                                {% set isDone = true %}
+                                <label id="label-{{candidate[0].id}}" name="votes[{{ candidate[0].id }}]"  class="" placeholder="0 - {{ cluster.totalVoters }}" min="0" max="{{ cluster.totalVoters }}" required >{{ candidate['vote'] }}</label>
+                                <button type="button" class="btn btn-sm btn-success pull-right btnEdit" data-toggle="modal" data-target="#updateVote" onclick="editclick('{{ candidate[0].id }}','{{ cluster.id }}','{{candidate[0].name}}','{{candidate[0].nickname}}','{{candidate['vote']}}','{{ cluster.totalVoters }}')" ><i class="fa fa-edit"></i> Update</button>
+                            {% endif %}
 
-                            <label id="label-{{candidate[0].id}}" name="votes[{{ candidate[0].id }}]"  class="" placeholder="0 - {{ cluster.totalVoters }}" min="0" max="{{ cluster.totalVoters }}" required >{{ candidate['vote'] }}</label> 
-
-                            <button type="button" class="btn btn-sm btn-success pull-right btnEdit" data-toggle="modal" data-target="#updateVote" onclick="editclick('{{ candidate[0].id }}','{{ cluster.id }}','{{candidate[0].name}}','{{candidate[0].nickname}}','{{candidate['vote']}}','{{ cluster.totalVoters }}')" ><i class="fa fa-edit"></i> Update</button>
                         </td>
                     </tr>
                     {% endfor %}
                     </tbody>
                 </table>
-                <div class="pull-right">
-                    <button type="submit" class="btn btn-primary btn-lg" style="margin-bottom: 30px;"><i class="fa fa-floppy-o"></i> Save Votes</button>
-                </div>
+                {% if not isDone %}
+                    <div class="pull-right">
+                        <button type="submit" class="btn btn-primary btn-lg" style="margin-bottom: 30px;"><i class="fa fa-floppy-o"></i> Save Votes</button>
+                    </div>
+                {% endif %}
 
                 <div class="modal fade" id="modal-save">
                     <div class="modal-dialog">
