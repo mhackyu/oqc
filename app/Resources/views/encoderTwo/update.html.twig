@@ -5,7 +5,7 @@
 
 {% block body %}
     <div class="container">
-        <div class="row">
+        <div class="row" id="candidate-row">
             <h4><b>Polling Place: </b><span><i>{{ cluster.location.name }}</i></span></h4>
             <h4><b>Cluster No.: </b><span><i>{{ cluster.number }}</i></span>
                 <b>Precint Nos.: </b><span><i>
@@ -30,19 +30,24 @@
                     <tr>
                         <th>Name</th>
                         <th>Nickname</th>
-                        <th>Add Vote</th>
+                        <th>Vote</th>
+
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody >
                     <h4 class="text-center"><b>{{ candidate.name }}</b></h4>
                     <hr>
                     {% set cnt = cnt + 1 %}
                     {% endif %}
-                    <tr>
+                    <tr >
                         <td>{{ candidate[0].name }}</td>
                         <td>{{ candidate[0].nickname }}</td>
                         <td>
-                            <input name="votes[{{ candidate[0].id }}]" type="number" class="form-control" placeholder="0 - {{ cluster.totalVoters }}" min="0" max="{{ cluster.totalVoters }}" required value="{{ candidate['vote'] }}">
+                            {#<input name="votes[{{ candidate[0].id }}]" type="number" class="form-control" placeholder="0 - {{ cluster.totalVoters }}" min="0" max="{{ cluster.totalVoters }}" required value="{{ candidate['vote'] }}"/>#}
+
+                            <label id="label-{{candidate[0].id}}" name="votes[{{ candidate[0].id }}]"  class="" placeholder="0 - {{ cluster.totalVoters }}" min="0" max="{{ cluster.totalVoters }}" required >{{ candidate['vote'] }}</label> 
+
+                            <button type="button" class="btn btn-sm btn-success pull-right btnEdit" data-toggle="modal" data-target="#updateVote" onclick="editclick('{{ candidate[0].id }}','{{ cluster.id }}','{{candidate[0].name}}','{{candidate[0].nickname}}','{{candidate['vote']}}','{{ cluster.totalVoters }}')" ><i class="fa fa-edit"></i> Update</button>
                         </td>
                     </tr>
                     {% endfor %}
@@ -72,11 +77,234 @@
             </form>
         </div>
     </div>
+
+ <style>
+    .loader {
+      border: 8px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 8px solid #3498db;
+      width: 30px;
+      height: 30px;
+      -webkit-animation: spin 2s linear infinite; /* Safari */
+      animation: spin 2s linear infinite;
+    }
+
+    /* Safari */
+    @-webkit-keyframes spin {
+      0% { -webkit-transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(360deg); }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    </style>
+
+{% endblock %}
+
+{% block modal %}
+
+
+    <div class="modal fade" id="updateVote" tabindex="-1" role="dialog" aria-labelledby="update" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title custom_align" id="Heading"><i class="fa fa-edit"></i> Update Candidate Vote Count</h4>
+              </div>
+
+
+              <div class="modal-body form-horizontal">
+
+                  <div class="form-group">
+                    <label class="control-label col-sm-3" for="email">Name:</label>
+                    <div class="col-sm-9">
+                      <label class="control-label" id="modal-candidate-name" ></label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-3" for="pwd">Number of Votes:</label>
+                    <div class="col-sm-9"> 
+                        <input id="inputVoter" type="number" class="form-control" min="0" onkeyup="this.value=this.value.replace(/[^\d]/,'')" />
+                        <div id="loader" class="hidden">
+                            <div style="padding-left: 20px; padding-top: 10px;">
+                                <div class="loader"></div>
+                            </div>
+                            <label class="control-label">processing...</label>    
+                        </div>
+                        <div id="notif" class="hidden">
+                            <label class="control-label" ><font id="status-notif"></font></label>
+                        </div>
+                        <div id="timer" class="hidden">
+                            <label style="font-size: 12px" id="display-Timer"></h4>
+                        </div>
+                       <!--  <div id="failedUpdate" class="hidden">
+                            <label class="control-label" ><font color="red">Update Failed.</font></label>
+                        </div> -->
+                            
+                    </div>
+                  </div>
+
+              </div>
+
+              
+                <div class="modal-footer">
+                   <button type="submit" class="btn btn-success" id="btnUpdateVote" onclick="updateVote()" ><i class="fa fa-save"></i> Save</button>
+                    <button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fa fa-close"></i> Cancel</button>
+              </div>
+
+             
+           </div>
+
+      </div>
+    </div>
+
+
+
+
 {% endblock %}
 
 {% block javascript %}
     <script>
+            var candidateGlobal;
+            var clusterGlobal;
+            var voteGlobal;
+            var labelid;
+            var urlpath = '{{path("api_client_update_votes")}}';
+            var time;
+            var timer;
+
         $(document).ready( function () {
+
+           
+
+        });//$(document).ready( function () {
+
+
+//editClick
+            function editclick(candidateID, clusterID, name, nickname, vote, totalVoters)
+            {
+                var candidateID = candidateID;
+                var clusterID = clusterID;
+                var name = name;
+                var nickname = nickname;
+                var vote = vote;
+                var totalVoters = totalVoters;
+
+               // alert(labelid);
+
+                $('#modal-candidate-name').html(name);
+
+                $('#inputVoter').attr('name',name);
+                $('#inputVoter').attr('placeholder',"0 - "+totalVoters);
+                $('#inputVoter').attr('max', totalVoters);
+                $('#inputVoter').val(vote);
+
+                candidateGlobal = candidateID;
+                clusterGlobal = clusterID;
+                voteGlobal = vote;
+                labelid = candidateID;
+
+                $("#loader").addClass('animated zoomIn');
+                $("#loader").addClass('hidden');
+                // $("#successUpdate").addClass('hidden');
+                // $("#failedUpdate").addClass('hidden');
+                $("#notif").addClass('hidden');
+                $("#btnUpdateVote").removeClass('hidden');
+                $("#timer").addClass('hidden');
+            }
+
+
+//UpdateVote
+            function updateVote()
+            {
+                var updatedvote = $('#inputVoter').val();
+                $("#notif").addClass('hidden');
+
+                if(updatedvote === voteGlobal)
+                {
+                     $("#notif").removeClass('hidden');
+                     $("#notif").addClass('animated jackInTheBox');
+                     $("#status-notif").attr('color','orange');
+                     $("#status-notif").html("You have entered the same vote value.");
+                }
+                else
+                {
+                    $("#loader").removeClass('hidden');
+                    $("#loader").addClass('animated zoomIn');
+                    
+                    $("#btnUpdateVote").prop('disabled', true);
+                     $.ajax({
+                        url: urlpath, 
+                        type: "POST",
+                        data: {cluster:clusterGlobal,
+                                candidate: candidateGlobal,
+                                count: updatedvote},
+                        dataType: 'json',
+                        success: function(data){
+                            if(data.isSuccess == 1)
+                            {
+                                
+                                $("#loader").addClass('hidden');
+                                $("#btnUpdateVote").addClass('hidden');
+                                $("#btnUpdateVote").prop('disabled', false);
+                                $("#label-"+labelid).html(updatedvote);
+                                $("#notif").removeClass('hidden');
+                                $("#status-notif").attr('color','green');
+                                $("#status-notif").html("Success!");
+                                // $("#successUpdate").removeClass('hidden');
+                                $("#notif").addClass('animated jackInTheBox');
+                                $("#timer").removeClass('hidden');
+                                 $("#timer").addClass('animated fadeInLeft');
+                                time = 2;
+                                //$('#display-Timer').html(time);
+                                timer = setInterval(function(){Timer()}, 1000); 
+
+                            }
+                            else
+                            {
+
+                                // $("#failedUpdate").removeClass('hidden');
+                                // $("#failedUpdate").addClass('animated jackInTheBox');
+                                $("#notif").removeClass('hidden');
+                                $("#notif").addClass('animated jackInTheBox');
+                                $("#status-notif").attr('color','red');
+                                $("#status-notif").html("Update failed! Try Reloading the page.");
+                                $("#btnUpdateVote").prop('disabled', false);
+                            }
+                        },
+                        error: function(data){                    
+                            alert('There is something wrong with updating the cadidates votes. Please contact the administrator.');
+                            $("#notif").removeClass('hidden');
+                            $("#notif").addClass('animated jackInTheBox');
+                            $("#status-notif").attr('color','red');
+                            $("#status-notif").html("Update failed! Try Reloading the page.");
+                            $("#btnUpdateVote").prop('disabled', false);
+                        }
+                    });   
+                }
+                    
+            }
+
+               
+            function Timer()
+            {       
+                
+                if(time <= 0)
+                {
+                    window.clearInterval(timer);
+                    $('#updateVote').modal('hide');
+
+                }
+                else
+                {
+                    time =  time - 1;
+                    $('#display-Timer').html("This dialog will automaticalli close in: " + time + " second(s).");
+                }
+            }
+
 
             // Add Item Validation
 //            $('#frmVote').formValidation({
@@ -88,9 +316,10 @@
 //                }
 //            });
 
-        });
+       // });
     </script>
-    {#<script> #}
+
+<!--     {#<script> #}
     {#//        $(document).ready( function() {#}
     {#//            $('#frmVote').formValidation({#}
     {#//                framework: 'bootstrap',#}
@@ -121,7 +350,7 @@
     {#//                }#}
     {#//            });#}
     {#});#}
-    {#</script>#}
+    {#</script>#} -->
 {% endblock %}
 
 
