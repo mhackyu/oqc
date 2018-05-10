@@ -67,6 +67,27 @@ class VoteTwoRepository extends EntityRepository
             ->getResult();
     }
 
+    /**
+     * This will get all votes of candidate per position.
+     * @return array
+     */
+    public function getVotesOfAllCandidatesPerPosition($position)
+    {
+        return $this->getEntityManager()
+            ->createQuery('
+                SELECT c.id, c.name , c.nickname, p.id as loc_id, p.name as pos_name, SUM (v.count) as votes
+                FROM AppBundle:VoteTwo v
+                JOIN v.cluster pr
+                JOIN v.candidate c
+                JOIN c.position p
+                WHERE c.position = :position
+                GROUP BY c.id
+                ORDER BY p.level ASC, votes DESC
+            ')
+            ->setParameter('position', $position)
+            ->getResult();
+    }
+
     public function getVotesOfCandidatePerLocation($candidate, $location)
     {
         return $this->getEntityManager()

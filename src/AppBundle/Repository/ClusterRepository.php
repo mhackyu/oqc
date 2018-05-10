@@ -21,4 +21,24 @@ class ClusterRepository extends EntityRepository
             ->setParameter('cluster', $cluster)
             ->getResult();
     }
+
+    public function getAllClustersByLocation($location) {
+        return $this->getEntityManager()
+            ->createQuery('
+                SELECT c.number, c.totalVoters
+                FROM AppBundle:Cluster c 
+                WHERE c.location = :location
+            ')
+            ->setParameter('location', $location)
+            ->getResult();
+    }
+
+    public function getAllClusters() {
+        return $this->getEntityManager()
+            ->createQuery('
+                SELECT c.number, c.totalVoters
+                FROM AppBundle:Cluster c 
+            ')
+            ->getResult();
+    }
 }

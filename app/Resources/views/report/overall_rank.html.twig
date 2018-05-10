@@ -1,0 +1,170 @@
+{# FULL LIST OF APPRPRIATION IN PPMP #}
+{#Bootstrap Core CSS #}
+<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+<page backtop="8mm" backbottom="7mm" backleft="10mm" backright="10mm">
+    <page_footer>
+        <div style="text-align: right">Page [[page_cu]] of [[page_nb]]</div>
+    </page_footer>
+
+    {# TITLE #}
+    <h3 style="text-align: center; margin-bottom: 3px">OQC - Overall Ranking</h3>
+    <p style="text-align: center; margin-top: 0px">as of {{ date|date("M d, Y - H:i A") }}</p>
+
+    {#STYLE#}
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #000000;
+            text-align: center;
+            padding: 5px;
+            padding-left: 5px;
+            font-size: 13px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        .indent {
+            padding-left: 10px;
+        }
+        .align-right {
+            text-align: right;
+            width: 150px;
+        }
+        .bold-name {
+            font-weight: bold;
+            font-size: 18px;
+            background-color: rgb(255,255,0.2);
+        }
+    </style>
+
+    <br/>
+    {% set cnt = 1 %}
+    {% set rank = 1 %}
+    <hr>
+
+    {# PUNONG BARANGAY #}
+    <h3 style="margin-top: 5px;">Punong Barangay</h3>
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <td><strong>Rank</strong></td>
+            <td style="width: 400px;"><strong>Name</strong></td>
+            <td style="width: 100px;"><strong>Nickname</strong></td>
+            <td><strong>Total Votes</strong></td>
+        </tr>
+        {% for key, value in punongBrgy %}
+            {% if (key+1) == 1 %}
+                <tr style="text-align: center;" class="bold-name">
+                    <td class="bold-name"># {{ key+1 }}</td>
+                    <td class="bold-name">{{ value.name }}</td>
+                    <td>{{ value.nickname }}</td>
+                    <td class="bold-name">{{ value.votes|number_format() }}</td>
+                </tr>
+            {% else %}
+                <tr style="text-align: center;">
+                    <td># {{ key+1 }}</td>
+                    <td>{{ value.name }}</td>
+                    <td>{{ value.nickname }}</td>
+                    <td>{{ value.votes|number_format() }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+
+    {# BARANGAY KAGAWAD #}
+    <hr style="margin-top: 10px;">
+    <h3 style="margin-top: 5px">Barangay Kagawad</h3>
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <td><strong>Rank</strong></td>
+            <td style="width: 400px;"><strong>Name</strong></td>
+            <td style="width: 100px;"><strong>Nickname</strong></td>
+            <td><strong>Total Votes</strong></td>
+        </tr>
+        {% for key, value in brgyKagawad %}
+            {% if (key+1) <= 7 %}
+                <tr style="text-align: center;" class="bold-name">
+                    <td class="bold-name"># {{ key+1 }}</td>
+                    <td class="bold-name">{{ value.name }}</td>
+                    <td>{{ value.nickname }}</td>
+                    <td class="bold-name">{{ value.votes|number_format() }}</td>
+                </tr>
+            {% else %}
+                <tr style="text-align: center;">
+                    <td># {{ key+1 }}</td>
+                    <td>{{ value.name }}</td>
+                    <td>{{ value.nickname }}</td>
+                    <td>{{ value.votes|number_format() }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+
+    {# SK CHAIRMAN #}
+    <hr style="margin-top: 10px;">
+    <h3 style="margin-top: 5px">SK KAGAWAD</h3>
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <td><strong>Rank</strong></td>
+            <td style="width: 400px;"><strong>Name</strong></td>
+            <td style="width: 100px;"><strong>Nickname</strong></td>
+            <td><strong>Total Votes</strong></td>
+        </tr>
+        {% for key, value in skChairman %}
+            {% if (key+1) == 1 %}
+                <tr style="text-align: center;" class="bold-name">
+                    <td class="bold-name"># {{ key+1 }}</td>
+                    <td class="bold-name">{{ value.name }}</td>
+                    <td>{{ value.nickname }}</td>
+                    <td class="bold-name">{{ value.votes|number_format() }}</td>
+                </tr>
+            {% else %}
+                <tr style="text-align: center;">
+                    <td># {{ key+1 }}</td>
+                    <td>{{ value.name }}</td>
+                    <td>{{ value.nickname }}</td>
+                    <td>{{ value.votes|number_format() }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+
+    {# SK KAGAWAD #}
+    <hr style="margin-top: 10px;">
+    <h3 style="margin-top: 5px">SK CHAIRMAN</h3>
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <td><strong>Rank</strong></td>
+            <td style="width: 400px;"><strong>Name</strong></td>
+            <td style="width: 100px;"><strong>Nickname</strong></td>
+            <td><strong>Total Votes</strong></td>
+        </tr>
+        {% for key, value in skKagawad %}
+            {% if (key+1) <= 7 %}
+                <tr style="text-align: center;" class="bold-name">
+                    <td class="bold-name"># {{ key+1 }}</td>
+                    <td class="bold-name">{{ value.name }}</td>
+                    <td>{{ value.nickname }}</td>
+                    <td class="bold-name">{{ value.votes|number_format() }}</td>
+                </tr>
+            {% else %}
+                <tr style="text-align: center;">
+                    <td># {{ key+1 }}</td>
+                    <td>{{ value.name }}</td>
+                    <td>{{ value.nickname }}</td>
+                    <td>{{ value.votes|number_format() }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+
+    <p style="text-align: center;">-END-</p>
+    <p style="text-align: center; font-style: italic; margin-top: 100px; margin-bottom: 0px;">This is system generated</p>
+
+</page>

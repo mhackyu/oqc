@@ -46,3 +46,4 @@ security:
         - { path: ^/admin-2, roles: ROLE_ADMIN }
         - { path: ^/encode, roles: ROLE_ENCODER }
         - { path: ^/encode-2, roles: ROLE_ENCODER }
+#        - { path: ^/api, roles: ["ROLE_ENCODER", "ROLE-ADMIN"] }

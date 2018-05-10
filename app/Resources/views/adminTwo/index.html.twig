@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             {#<h2 class="animated bounceInLeft">Welcome, Administrator!</h2>#}
-            <h2 class="text-center"><strong>Overall Ranking</strong></h2>
+            <h2 class="text-center"><strong>Overall Ranking</strong><span> <a href="{{ path('report_overall_ranking') }}" target="_blank" class="btn btn-primary"><i class="fa fa-print" aria-hidden="true"></i> Print</a></span></h2>
             {#<hr>#}
             <div class="col-md-12">
                 {% set cnt = 1 %}
@@ -16,25 +16,25 @@
                 {#{% set pick_pos = 0 %}#}
                 {#{% set pos = 0 %}#}
                 {% for candidate in candidates %}
-                {% if cnt == candidate.loc_id %}
-                <table id="tbl_{{ cnt }}" class="table table-hover animated fadeIn">
-                    <thead>
-                    <tr>
-                        <th>Rank</th>
-                        <th>Name</th>
-                        <th>Nickname</th>
-                        <th>Total Votes</th>
-                        <th>Vote Information</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <hr>
-                    <h4><b>{{ candidate.pos_name }}</b></h4>
-                    <hr>
-                    {% set cnt = cnt + 1 %}
-                    {% set rank = 1 %}
-                    {#{% set pos = 0 %}#}
-                    {#{% set pick_pos = pick_pos + 1 %}#}
+                    {% if cnt == candidate.loc_id %}
+                    <table id="tbl_{{ cnt }}" class="table table-hover animated fadeIn">
+                        <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Nickname</th>
+                            <th>Total Votes</th>
+                            <th>Vote Information</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <hr>
+                        <h4><b>{{ candidate.pos_name }}</b></h4>
+                        <hr>
+                        {% set cnt = cnt + 1 %}
+                        {% set rank = 1 %}
+                        {#{% set pos = 0 %}#}
+                        {#{% set pick_pos = pick_pos + 1 %}#}
                     {% endif %}
                     {#<tr {% if pos < pick[0] %} style="font-size: 20px;" {% endif %}>#}
                     <tr>
@@ -46,7 +46,7 @@
                     </tr>
                     {% set rank = rank + 1 %}
                     {#{% set pos = pos + 1 %}#}
-                    {% endfor %}
+                {% endfor %}
                     </tbody>
                 </table>
             </div>

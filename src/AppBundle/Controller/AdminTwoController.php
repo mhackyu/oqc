@@ -61,28 +61,38 @@ class AdminTwoController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
+        $cl = $em->getRepository('AppBundle:Cluster')
+            ->getAllClusters();
+
         $saes = $em->getRepository('AppBundle:VoteTwo')
             ->getVotesOfCandidatePerLocation($candidate->getId(),1);
+        $saesWithVoters = $this->addVoters($saes, $cl);
+
         $adelina = $em->getRepository('AppBundle:VoteTwo')
             ->getVotesOfCandidatePerLocation($candidate->getId(),2);
+        $adelinaWithVoters = $this->addVoters($adelina, $cl);
+
         $usp = $em->getRepository('AppBundle:VoteTwo')
             ->getVotesOfCandidatePerLocation($candidate->getId(),3);
+        $uspWithVoters = $this->addVoters($usp, $cl);
 
         $clusters = [
             [
                 'loc_name' => 'San Antonio',
-                'clusters' => $saes
+                'clusters' => $saesWithVoters,
             ],
             [
                 'loc_name' => 'Adelina I Elementary School',
-                'clusters' => $adelina
+                'clusters' => $adelinaWithVoters
             ],
             [
                 'loc_name' => 'United San Pedro Subdivision Multi-purpose Hall',
-                'clusters' => $usp
+                'clusters' => $uspWithVoters
             ],
 
         ];
+
+//        dump($clusters);die;
 
         $totalVotes = $em->getRepository('AppBundle:VoteTwo')
             ->getTotalVotesPerCandidate($candidate->getId());
@@ -90,7 +100,30 @@ class AdminTwoController extends Controller
         return $this->render('adminTwo/voteInfo.html.twig', [
             'candidate' => $candidate,
             'clusters' => $clusters,
-            'totalVotes' => $totalVotes
+            'totalVotes' => $totalVotes,
         ]);
+    }
+
+    /**
+     * This will add number of voters per cluster
+     * @param $saes
+     * @param $cl
+     * @return array
+     */
+    private function addVoters($loc , $cl)
+    {
+        $locWithVoters = [];
+        $totalVotes = 0;
+        foreach ($loc as $value) {
+            foreach ($cl as $clusterWithVoters) {
+                if ($clusterWithVoters['number'] == $value['cl_number']) {
+                    $value['totalVoters'] = $clusterWithVoters['totalVoters'];
+                    $locWithVoters [] = $value;
+                    $totalVotes += $value['votes'];
+                }
+            }
+        }
+
+        return $locWithVoters;
     }
 }

@@ -8,16 +8,16 @@
         <div class="row">
             {#<h2 class="animated bounceInLeft">Welcome, Administrator!</h2>#}
 
-            <div class="panel panel-info">
+            <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">
-                        <h2 class="text-center"><strong>Vote Information</strong></h2>
+                        <h2 class="text-center"><strong>Vote Information <i class="fa fa-info-circle" aria-hidden="true"></i></strong></h2>
                     </h3>
                 </div>
                 <div class="panel-body">
-                    <h3 class="text-warning" style="margin-bottom: 0px;">{{ candidate.name }}</h3>
+                    <h2 class="text-info" style="margin-bottom: 0px;"><b>{{ candidate.name }}</b></h2>
                     <h4 style="margin-top: 0px;margin-bottom: 0px;"><b>{{ candidate.position.name }}</b></h4>
-                    <h2 style="margin-top: 5px;"><span class="label label-warning">{{ totalVotes|number_format }} total votes</span></h2>
+                    <h2 style="margin-top: -40px;" class="pull-right"><span class="label label-warning">{{ totalVotes|number_format }} Total Votes</span></h2>
                     <hr style="margin-top: 50px;">
 
 
@@ -27,14 +27,22 @@
                         <thead>
                         <tr>
                             <th class="bg-primary">Cluster No.</th>
-                            <th class="bg-primary">Votes</th>
+                            <th class="bg-primary" width="30%">Total Registered Voters</th>
+                            <th class="bg-primary">Percentage</th>
+                            <th class="bg-primary"><div class="text-center">Votes</div></th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for cl in cluster.clusters %}
                             <tr class="bg-info">
                                 <td>{{ cl.cl_number }}</td>
-                                <td>{{ cl.votes }}</td>
+                                <td>{{ cl.totalVoters }}</td>
+                                <td>{{ ((cl.votes/cl.totalVoters)*100)|number_format(0) }}%</td>
+                                <td>
+                                    <div class="pull-right">
+                                        {{ cl.votes|number_format }}
+                                    </div>
+                                </td>
                             </tr>
                             {% set totalPrecintVotes = totalPrecintVotes + cl.votes %}
                         {% else %}
@@ -42,7 +50,20 @@
                                 <td colspan="2">No votes found.</td>
                             </tr>
                         {% endfor %}
-                        <h4><b>{{ cluster.loc_name }} <span class="label label-info">{{ totalPrecintVotes }} vote(s)</span></b></h4>
+                        <h4 style="margin-top: 50px;"><b>{{ cluster.loc_name }}</b></h4>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td>
+                                <div class="pull-right">
+                                    <b>TOTAL</b>
+                                </div>
+                            </td>
+                            <td style="font-size: 16px;">
+                                <div class="pull-right">
+                                    <b>{{ totalPrecintVotes }}</b>
+                                </div>
+                            </td>
+                        </tr>
                         {% endfor %}
                         </tbody>
                     </table>
