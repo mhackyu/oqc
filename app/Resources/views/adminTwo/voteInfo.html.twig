@@ -18,6 +18,9 @@
                     <h2 class="text-info" style="margin-bottom: 0px;"><b>{{ candidate.name }}</b></h2>
                     <h4 style="margin-top: 0px;margin-bottom: 0px;"><b>{{ candidate.position.name }}</b></h4>
                     <h2 style="margin-top: -40px;" class="pull-right"><span class="label label-warning">{{ totalVotes|number_format }} Total Votes</span></h2>
+                    <div class="" style="margin-top: 6px;">
+                        <a href="{{ path('report_vote_info', {'id': candidate.id}) }}" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Download a copy</a>
+                    </div>
                     <hr style="margin-top: 50px;">
 
 
@@ -28,8 +31,14 @@
                         <tr>
                             <th class="bg-primary">Cluster No.</th>
                             <th class="bg-primary" width="30%">Total Registered Voters</th>
-                            <th class="bg-primary">Percentage</th>
-                            <th class="bg-primary"><div class="text-center">Votes</div></th>
+                            {% if candidate.position.id == 1 or candidate.position.id == 3 %}
+                                <th class="bg-primary">Percentage</th>
+                                <th class="bg-primary"><div class="text-center">Votes</div></th>
+                            {% else %}
+                                {#<th class="bg-primary" colspan="1"></th>#}
+                                <th class="bg-primary"><div class="text-center">Votes</div></th>
+                            {% endif %}
+
                         </tr>
                         </thead>
                         <tbody>
@@ -37,7 +46,9 @@
                             <tr class="bg-info">
                                 <td>{{ cl.cl_number }}</td>
                                 <td>{{ cl.totalVoters }}</td>
-                                <td>{{ ((cl.votes/cl.totalVoters)*100)|number_format(0) }}%</td>
+                                {% if candidate.position.id == 1 or candidate.position.id == 3 %}
+                                <td>{{ ((cl.votes/cl.overallVotes)*100)|number_format(0) }}%</td>
+                                {% endif %}
                                 <td>
                                     <div class="pull-right">
                                         {{ cl.votes|number_format }}
@@ -52,7 +63,7 @@
                         {% endfor %}
                         <h4 style="margin-top: 50px;"><b>{{ cluster.loc_name }}</b></h4>
                         <tr>
-                            <td colspan="2"></td>
+                            <td {% if candidate.position.id == 1 or candidate.position.id == 3 %} colspan="2" {% endif %}></td>
                             <td>
                                 <div class="pull-right">
                                     <b>TOTAL</b>

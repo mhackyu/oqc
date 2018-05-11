@@ -1,0 +1,113 @@
+{# FULL LIST OF APPRPRIATION IN PPMP #}
+{#Bootstrap Core CSS #}
+<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+<page backtop="8mm" backbottom="7mm" backleft="10mm" backright="10mm">
+    <page_footer>
+        <div style="text-align: right">Page [[page_cu]] of [[page_nb]]</div>
+    </page_footer>
+
+    {# TITLE #}
+    {#<h3 style="text-align: center; margin-bottom: 3px">Brgy. San Antonio Ranking</h3>#}
+    {#<p style="text-align: center; margin-top: 0px">as of {{ date|date("M d, Y - H:i A") }}</p>#}
+
+    {#STYLE#}
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #000000;
+            text-align: center;
+            padding: 5px;
+            padding-left: 5px;
+            font-size: 13px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        .indent {
+            padding-left: 10px;
+        }
+        .align-right {
+            text-align: right;
+            width: 150px;
+        }
+        .bold-name {
+            font-weight: bold;
+            font-size: 18px;
+            background-color: rgb(255,255,0.2);
+        }
+    </style>
+
+    <h2 class="text-info" style="margin-bottom: 0px;"><b>{{ candidate.name }}</b></h2>
+    <h4 style="margin-top: 0px;margin-bottom: 0px;"><b>{{ candidate.position.name }}</b></h4>
+    <h2 style="text-align: right; margin-top: -35px;"><span>12,{{ totalVotes|number_format }}</span> total votes</h2>
+    <hr>
+
+    {% for cluster in clusters %}
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <td width="100">Cluster No.</td>
+                <td>Total Registered Voters</td>
+                <td width="100">Percentage</td>
+                <td width="100">Votes</td>
+            </tr>
+            {% for cl in cluster.clusters %}
+            <tr>
+                <td>{{ cl.cl_number }}</td>
+                <td>{{ cl.totalVoters }}</td>
+                <td>{{ ((cl.votes/cl.totalVoters)*100)|number_format(0) }}%</td>
+                <td>{{ cl.votes|number_format }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endfor %}
+    {#{% for cluster in clusters %}#}
+    {#{% set totalPrecintVotes = 0 %}#}
+    {#<table>#}
+        {#<tr>#}
+            {#<td class="bg-primary">Cluster No.</td>#}
+            {#<td class="bg-primary" width="30%">Total Registered Voters</td>#}
+            {#<td class="bg-primary">Percentage</td>#}
+            {#<td class="bg-primary"><div class="text-center">Votes</div></td>#}
+        {#</tr>#}
+        {#{% for cl in cluster.clusters %}#}
+            {#<tr class="bg-info">#}
+                {#<td>{{ cl.cl_number }}</td>#}
+                {#<td>{{ cl.totalVoters }}</td>#}
+                {#<td>{{ ((cl.votes/cl.totalVoters)*100)|number_format(0) }}%</td>#}
+                {#<td>#}
+                    {#<div class="pull-right">#}
+                        {#{{ cl.votes|number_format }}#}
+                    {#</div>#}
+                {#</td>#}
+            {#</tr>#}
+            {#{% set totalPrecintVotes = totalPrecintVotes + cl.votes %}#}
+        {#{% else %}#}
+            {#<tr>#}
+                {#<td colspan="2">No votes found.</td>#}
+            {#</tr>#}
+        {#{% endfor %}#}
+        {#<h4 style="margin-top: 50px;"><b>{{ cluster.loc_name }}</b></h4>#}
+        {#<tr>#}
+            {#<td colspan="2"></td>#}
+            {#<td>#}
+                {#<div class="pull-right">#}
+                    {#<b>TOTAL</b>#}
+                {#</div>#}
+            {#</td>#}
+            {#<td style="font-size: 16px;">#}
+                {#<div class="pull-right">#}
+                    {#<b>{{ totalPrecintVotes }}</b>#}
+                {#</div>#}
+            {#</td>#}
+        {#</tr>#}
+        {#{% endfor %}#}
+    {#</table>#}
+
+</page>

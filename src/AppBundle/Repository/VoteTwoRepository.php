@@ -103,6 +103,31 @@ class VoteTwoRepository extends EntityRepository
             ->getResult();
     }
 
+    /**
+     * This repository will get total votes per precint in specific position.
+     * @return array
+     */
+    public function getPercentagePerCluster()
+    {
+        $clusters = $this->getEntityManager()
+            ->createQuery('
+                SELECT cl.number, SUM(v.count) as total_votes
+                FROM AppBundle:VoteTwo v
+                JOIN v.cluster as cl
+                JOIN v.candidate c 
+                WHERE c.position = 1
+                GROUP BY cl.number
+            ')
+            ->getResult();
+
+        $clus = [];
+        foreach ($clusters as $cluster) {
+            $clus[$cluster['number']] = $cluster['total_votes'];
+        }
+
+        return $clus;
+    }
+
     public function getTotalVotesPerCandidate($candidate)
     {
         $votes = $this->getEntityManager()

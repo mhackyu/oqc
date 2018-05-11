@@ -72,20 +72,24 @@ class AdminTwoController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
+        $percentage = $em->getRepository('AppBundle:VoteTwo')
+            ->getPercentagePerCluster();
+
         $cl = $em->getRepository('AppBundle:Cluster')
             ->getAllClusters();
 
         $saes = $em->getRepository('AppBundle:VoteTwo')
             ->getVotesOfCandidatePerLocation($candidate->getId(),1);
-        $saesWithVoters = $this->addVoters($saes, $cl);
+
+        $saesWithVoters = $this->addVoters($saes, $cl, $percentage);
 
         $adelina = $em->getRepository('AppBundle:VoteTwo')
             ->getVotesOfCandidatePerLocation($candidate->getId(),2);
-        $adelinaWithVoters = $this->addVoters($adelina, $cl);
+        $adelinaWithVoters = $this->addVoters($adelina, $cl, $percentage);
 
         $usp = $em->getRepository('AppBundle:VoteTwo')
             ->getVotesOfCandidatePerLocation($candidate->getId(),3);
-        $uspWithVoters = $this->addVoters($usp, $cl);
+        $uspWithVoters = $this->addVoters($usp, $cl, $percentage);
 
         $clusters = [
             [
@@ -142,7 +146,7 @@ class AdminTwoController extends Controller
      * @param $cl
      * @return array
      */
-    private function addVoters($loc , $cl)
+    private function addVoters($loc , $cl, $percentage)
     {
         $locWithVoters = [];
         $totalVotes = 0;
@@ -150,6 +154,7 @@ class AdminTwoController extends Controller
             foreach ($cl as $clusterWithVoters) {
                 if ($clusterWithVoters['number'] == $value['cl_number']) {
                     $value['totalVoters'] = $clusterWithVoters['totalVoters'];
+                    $value['overallVotes'] = $percentage[$value['cl_number']];
                     $locWithVoters [] = $value;
                     $totalVotes += $value['votes'];
                 }
