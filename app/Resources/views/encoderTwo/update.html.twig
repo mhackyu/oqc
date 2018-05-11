@@ -49,7 +49,9 @@
                             {% else %}
                                 {% set isDone = true %}
                                 <label id="label-{{candidate[0].id}}" name="votes[{{ candidate[0].id }}]"  class="" placeholder="0 - {{ cluster.totalVoters }}" min="0" max="{{ cluster.totalVoters }}" required >{{ candidate['vote'] }}</label>
-                                <button type="button" class="btn btn-sm btn-success pull-right btnEdit" data-toggle="modal" data-target="#updateVote" onclick="editclick('{{ candidate[0].id }}','{{ cluster.id }}','{{candidate[0].name}}','{{candidate[0].nickname}}','{{candidate['vote']}}','{{ cluster.totalVoters }}')" ><i class="fa fa-edit"></i> Update</button>
+
+                                <button id="btn-{{candidate[0].id}}" type="button" class="btn btn-sm btn-success pull-right btnEdit" data-toggle="modal" data-target="#updateVote" voteval="{{candidate['vote']}}" onclick="editclick('{{ candidate[0].id }}','{{ cluster.id }}','{{candidate[0].name}}','{{candidate[0].nickname}}','{{candidate['vote']}}','{{ cluster.totalVoters }}', 'btn-{{candidate[0].id}}')" ><i class="fa fa-edit"></i> Update</button>
+
                             {% endif %}
 
                         </td>
@@ -181,7 +183,7 @@
             var urlpath = '{{path("api_client_update_votes")}}';
             var time;
             var timer;
-
+            var btnid;
         $(document).ready( function () {
 
            
@@ -190,29 +192,26 @@
 
 
 //editClick
-            function editclick(candidateID, clusterID, name, nickname, vote, totalVoters)
+            function editclick(candidateID, clusterID, name, nickname, vote, totalVoters, btnidin)
             {
+                //alert(btnid);
+
                 var candidateID = candidateID;
                 var clusterID = clusterID;
                 var name = name;
                 var nickname = nickname;
                 var vote = vote;
                 var totalVoters = totalVoters;
-
-               // alert(labelid);
-
+                btnid = btnidin;
                 $('#modal-candidate-name').html(name);
-
                 $('#inputVoter').attr('name',name);
                 $('#inputVoter').attr('placeholder',"0 - "+totalVoters);
                 $('#inputVoter').attr('max', totalVoters);
-                $('#inputVoter').val(vote);
-
+                $('#inputVoter').val($("#"+btnid).attr("voteval"));
                 candidateGlobal = candidateID;
                 clusterGlobal = clusterID;
                 voteGlobal = vote;
                 labelid = candidateID;
-
                 $("#loader").addClass('animated zoomIn');
                 $("#loader").addClass('hidden');
                 // $("#successUpdate").addClass('hidden');
@@ -256,24 +255,24 @@
                                 $("#loader").addClass('hidden');
                                 $("#btnUpdateVote").addClass('hidden');
                                 $("#btnUpdateVote").prop('disabled', false);
+
                                 $("#label-"+labelid).html(updatedvote);
+                                $("#"+btnid).attr("voteval", updatedvote );
+
                                 $("#notif").removeClass('hidden');
                                 $("#status-notif").attr('color','green');
                                 $("#status-notif").html("Success!");
-                                // $("#successUpdate").removeClass('hidden');
                                 $("#notif").addClass('animated jackInTheBox');
                                 $("#timer").removeClass('hidden');
                                  $("#timer").addClass('animated fadeInLeft');
                                 time = 2;
-                                //$('#display-Timer').html(time);
                                 timer = setInterval(function(){Timer()}, 1000); 
+
+
 
                             }
                             else
                             {
-
-                                // $("#failedUpdate").removeClass('hidden');
-                                // $("#failedUpdate").addClass('animated jackInTheBox');
                                 $("#notif").removeClass('hidden');
                                 $("#notif").addClass('animated jackInTheBox');
                                 $("#status-notif").attr('color','red');
