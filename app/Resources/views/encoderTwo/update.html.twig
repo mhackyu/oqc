@@ -45,12 +45,12 @@
                         <td>{{ candidate[0].nickname }}</td>
                         <td>
                             {% if not cluster.isDone %}
-                                <input name="votes[{{ candidate[0].id }}]" id="input-{{candidate[0].id}}" candidate_pos="{{ candidate.id }}" type="number" class="form-control" placeholder="0 - {{ cluster.totalVoters }}" min="0" max="{{ cluster.totalVoters }}" required value="{{ candidate['vote'] }}" onkeyup='checkValueInput("input-{{candidate[0].id}}")' /> 
+                                <input name="votes[{{ candidate[0].id }}]" id="input-{{candidate[0].id}}" candidate_pos="{{ candidate.id }}" type="number" class="form-control" placeholder="0 - {{ cluster.totalVoters }}" min="0" max="" required value="{{ candidate['vote'] }}" onkeypress="return isNumberKey(event)" onkeyup='checkValueInput("input-{{candidate[0].id}}", "input-", "{{ candidate.id }}")' /> 
                             {% else %}
                                 {% set isDone = true %}
                                 <label id="label-{{candidate[0].id}}" name="votes[{{ candidate[0].id }}]"  class="" placeholder="0 - {{ cluster.totalVoters }}" min="0" max="{{ cluster.totalVoters }}" required >{{ candidate['vote'] }}</label>
 
-                                <button id="btn-{{candidate[0].id}}" type="button" class="btn btn-sm btn-success pull-right btnEdit" data-toggle="modal" data-target="#updateVote" voteval="{{candidate['vote']}}" onclick="editclick('{{ candidate[0].id }}','{{ cluster.id }}','{{candidate[0].name}}','{{candidate[0].nickname}}','{{candidate['vote']}}','{{ cluster.totalVoters }}', 'btn-{{candidate[0].id}}')" ><i class="fa fa-edit"></i> Update</button>
+                                <button id="btn-{{candidate[0].id}}" type="button" class="btn btn-sm btn-success pull-right btnEdit" data-toggle="modal" data-target="#updateVote" voteval="{{candidate['vote']}}"  onclick="editclick('{{ candidate[0].id }}','{{ cluster.id }}','{{candidate[0].name}}','{{candidate[0].nickname}}','{{candidate['vote']}}','{{ cluster.totalVoters }}', 'btn-{{candidate[0].id}}', 'label-{{ candidate[0].id }}')" ><i class="fa fa-edit"></i> Update</button>
 
                             {% endif %}
 
@@ -75,7 +75,7 @@
                             <div class="modal-body">
                                The entered votes for the position: <label style="display: inline;" id="display-position"></label> has exceeded to the total number of voters in this clustered precinct. 
                                <br>
-                               Max.: <label style="display: inline;">{{cluster.totalVoters}}</label>
+                               Max.: <label style="display: inline;" id="maxVoters"></label>
                                <br>
                                Total number of entered votes: <label style="display: inline;" id="display-entered-votes"></label>
                             </div>
@@ -139,7 +139,7 @@
                   <div class="form-group">
                     <label class="control-label col-sm-3" for="pwd">Number of Votes:</label>
                     <div class="col-sm-9"> 
-                        <input id="inputVoter" type="number" class="form-control" min="0" onkeyup="this.value=this.value.replace(/[^\d]/,'')" />
+                        <input id="inputVoter" type="number" class="form-control" min="0" data-candidate-id="" data-label-source=""  onkeyup='checkValueLabel("inputVoter", "label-")' onkeypress="return isNumberKey(event)"  />
                         <div id="loader" class="hidden">
                             <div style="padding-left: 20px; padding-top: 10px;">
                                 <div class="loader"></div>
@@ -147,7 +147,7 @@
                             <label class="control-label">processing...</label>    
                         </div>
                         <div id="notif" class="hidden">
-                            <label class="control-label" ><font id="status-notif"></font></label>
+                            <label class="" style="font-size: 12px" ><font id="status-notif"></font></label>
                         </div>
                         <div id="timer" class="hidden">
                             <label style="font-size: 12px" id="display-Timer"></h4>
@@ -192,31 +192,54 @@
 
         $(document).ready( function () {
 
-         //alert($("#input-1").val());
+            // for(var i = 31; i < 52; i++ )
+            // {
+                
+            //     $("#input-"+i).numeric();
+                
+            // }
+        
             
         });//$(document).ready( function () {
 
-            function checkValueInput(candidateidin)
+
+            function isNumberKey(evt) {
+                var charCode = (evt.which) ? evt.which : event.keyCode;
+                if ((charCode < 48 || charCode > 57))
+                    return false;
+
+                return true;
+            }
+
+            function checkValueInput(candidateidin, inputtype)//label-, inputVoter
             {
                 //alert($("#"+inputidin).attr("candidate_pos"));
-                var i1=0,i2=0,i3=0,i4=0,i5=0,i6=0,i7=0,i8=0,i9=0,i10=0,i11=0,i12=0,i13=0,i14=0,i15=0,i16=0,i17=0,i18=0,i19=0,i20=0,i21=0,i22=0,i23=0,i24=0;
-                var i25=0,i26=0,i27=0;
-                var i28=0,i29=0,i30=0,i31=0,i32=0,i33=0,i34=0,i35=0,i36=0,i37=0,i38=0,i39=0,i40,i41=0,i42=0,i43=0,i44=0,i45=0,i46=0,i47=0,i48=0,i49=0,i50=0,i51=0;
 
+                //this.value=this.value.replace(/[^\d]/,'')
+                //alert(inputtype + "" + candidateidin);
+                //numberOnly(this);
                 var sum1 = 0, sum2 = 0, sum3 = 0, sum4 = 0;
                 
                 for(var i = 1; i < 4; i++ )
                 {
-                    
-                    sum1 = sum1 + Number($("#input-"+i).val());
+                    // if("inputtype-"+i == )
+                    // {
+
+                    // }  
+                    // else
+                    // {
+                        sum1 = sum1 + Number($("#"+inputtype+i).val());
+                        // alert(Number($("#"+inputtype+i).html()));
+                        // break;
+                    // }
                     
                 }
-
+               // alert(sum1);
                 if(sum1>totalVotersGlobal)
                 {
-                    // alert("You have exceeded the maximum voters for this precinct cluster. Max.: "+totalVotersGlobal);
                     $("#modal-alert").modal();
                     $("#"+candidateidin).val(0);
+                    $("#maxVoters").html(totalVotersGlobal);
                     $("#display-position").html("Punong Barangay");
                     $("#display-entered-votes").html(sum1);
                 }
@@ -224,15 +247,15 @@
                 for(var i = 4; i < 28; i++ )
                 {
                     
-                    sum2 = sum2 + Number($("#input-"+i).val());
+                    sum2 = sum2 + Number($("#"+inputtype+i).val());
                     
                 }
 
-                 if(sum2>totalVotersGlobal)
+                 if(sum2>(totalVotersGlobal * 7))
                 {
-                    // alert("You have exceeded the maximum voters for this precinct cluster. Max.: "+totalVotersGlobal);
                     $("#modal-alert").modal();
                     $("#"+candidateidin).val(0);
+                    $("#maxVoters").html(totalVotersGlobal * 7);
                     $("#display-position").html("Barangay Kagawad");
                     $("#display-entered-votes").html(sum2);
                 }
@@ -240,15 +263,15 @@
                 for(var i = 28; i < 31; i++ )
                 {
                     
-                    sum3 = sum3 + Number($("#input-"+i).val());
+                    sum3 = sum3 + Number($("#"+inputtype+i).val());
                     
                 }
                 
                  if(sum3>totalVotersGlobal)
                 {
-                    // alert("You have exceeded the maximum voters for this precinct cluster. Max.: "+totalVotersGlobal);
                     $("#modal-alert").modal();
                     $("#"+candidateidin).val(0);
+                    $("#maxVoters").html(totalVotersGlobal);
                     $("#display-position").html("SK Chairman");
                     $("#display-entered-votes").html(sum3);
                 }
@@ -256,15 +279,15 @@
                 for(var i = 31; i < 52; i++ )
                 {
                     
-                    sum4 = sum4 + Number($("#input-"+i).val());
+                    sum4 = sum4 + Number($("#"+inputtype+i).val());
                     
                 }
 
-                 if(sum4>totalVotersGlobal)
+                 if(sum4>(totalVotersGlobal * 7))
                 {
-                    // alert("You have exceeded the maximum voters for this precinct cluster. Max.: "+totalVotersGlobal);
                     $("#modal-alert").modal();
                     $("#"+candidateidin).val(0);
+                    $("#maxVoters").html(totalVotersGlobal * 7);
                     $("#display-position").html("SK Kagawad");
                     $("#display-entered-votes").html(sum4);
                 }
@@ -277,10 +300,130 @@
                 
                 
             }
+
+            function checkValueLabel(inputvoter, inputtype)//inputVoter, label-
+            {   
+                var source = $("#"+inputvoter).attr("data-label-source");
+
+                var sum1 = 0, sum2 = 0, sum3 = 0, sum4 = 0;
+                
+                for(var i = 1; i < 4; i++ )
+                {
+                    if(inputtype+i == source)
+                    {
+                        sum1 = sum1 + Number($("#"+inputvoter).val());
+                    }  
+                    else
+                    {
+                        sum1 = sum1 + Number($("#"+inputtype+i).html());
+                    }
+                }
+                //alert(sum1);
+                if(sum1>totalVotersGlobal)
+                {
+
+                    $("#"+inputvoter).val($("#"+source).html());
+                    $("#notif").removeClass('hidden');
+                    $("#notif").addClass('animated jackInTheBox');
+                    $("#status-notif").attr('color','orange');
+                    $("#status-notif").html("The entered votes for the position: PUNONG BARANGAY has exceeded to the total number of voters in this clustered precinct.<br> Max: " + totalVotersGlobal +  "<br>  Total number of entered votes: " + sum1 + "<br><br> Vote has been set to previous value.");              
+                }
+
+                
+
+
+                for(var i = 4; i < 28; i++ )
+                {
+                    if(inputtype+i == source)
+                    {
+                        sum2 = sum2 + Number($("#"+inputvoter).val());
+                    }  
+                    else
+                    {
+                        sum2 = sum2 + Number($("#"+inputtype+i).html());
+                    }
+                }
+
+                 if(sum2>(totalVotersGlobal * 7))
+                {
+
+                    $("#"+inputvoter).val($("#"+source).html());
+                    $("#notif").removeClass('hidden');
+                    $("#notif").addClass('animated jackInTheBox');
+                    $("#status-notif").attr('color','orange');
+                    $("#status-notif").html("The entered votes for the position: PUNONG BARANGAY has exceeded to the total number of voters in this clustered precinct.<br> Max: " + (totalVotersGlobal * 7) +  "<br>  Total number of entered votes: " + sum2 + "<br><br> Vote has been set to previous value.");              
+                }
+                
+                for(var i = 28; i < 31; i++ )
+                {
+                    if(inputtype+i == source)
+                    {
+                        sum3 = sum3 + Number($("#"+inputvoter).val());
+                    }  
+                    else
+                    {
+                        sum3 = sum3 + Number($("#"+inputtype+i).html());
+                    }
+                }
+                
+                 if(sum3>totalVotersGlobal)
+                {
+
+                    $("#"+inputvoter).val($("#"+source).html());
+                    $("#notif").removeClass('hidden');
+                    $("#notif").addClass('animated jackInTheBox');
+                    $("#status-notif").attr('color','orange');
+                    $("#status-notif").html("The entered votes for the position: SK CHAIRMAN has exceeded to the total number of voters in this clustered precinct.<br> Max: " + totalVotersGlobal +  "<br>  Total number of entered votes: " + sum3 + "<br><br> Vote has been set to previous value.");              
+                }
+                
+
+                for(var i = 31; i < 52; i++ )
+                {
+                    if(inputtype+i == source)
+                    {
+                        sum4 = sum4 + Number($("#"+inputvoter).val());
+                    }  
+                    else
+                    {
+                        sum4 = sum4 + Number($("#"+inputtype+i).html());
+                    }
+                }
+
+                 if(sum4>(totalVotersGlobal * 7))
+                {
+
+                    $("#"+inputvoter).val($("#"+source).html());
+                    $("#notif").removeClass('hidden');
+                    $("#notif").addClass('animated jackInTheBox');
+                    $("#status-notif").attr('color','orange');
+                    $("#status-notif").html("The entered votes for the position: SK KAGAWAD has exceeded to the total number of voters in this clustered precinct.<br> Max: " + (totalVotersGlobal * 7) +  "<br>  Total number of entered votes: " + sum4 + "<br><br> Vote has been set to previous value.");              
+                }
+
+                
+                // if(sum1 || sum2 || sum3 || sum4 <=  totalVotersGlobal)
+                // {
+                //     $("#timer").removeClass('hidden');
+                //     $("#timer").addClass('animated fadeInLeft');
+                //     time = 6;
+                //     timer = setInterval(function(){Timer()}, 1000); 
+
+                // }
+                // //$("#notif").addClass('hidden');
+                
+               
+
+
+                // sum2 = i4 + i5 + i6 + i7 + i8 + i9 + i10 + i11 + i12 + i13 + i14 + i15 + i16 + i17 + i18 + i19 + i20 + i21 + i22 + i23 + i24 + i25 + i26 + i27;
+ 
+                //alert(sum2);
+                
+                
+            }
 //editClick
-            function editclick(candidateID, clusterID, name, nickname, vote, totalVoters, btnidin)
+            function editclick(candidateID, clusterID, name, nickname, vote, totalVoters, btnidin, labelplace)
             {
                 //alert(btnid);
+                //$('#updateVote').modal();
                 var candidateID = candidateID;
                 var clusterID = clusterID;
                 var name = name;
@@ -289,6 +432,8 @@
                 var totalVoters = totalVoters;
                 btnid = btnidin;
                 $('#modal-candidate-name').html(name);
+                $('#inputVoter').attr('data-candidate-id',candidateID);
+                $('#inputVoter').attr('data-label-source',labelplace);
                 $('#inputVoter').attr('name',name);
                 $('#inputVoter').attr('placeholder',"0 - "+totalVoters);
                 $('#inputVoter').attr('max', totalVoters);
@@ -310,6 +455,8 @@
             {
                 var updatedvote = $('#inputVoter').val();
                 $("#notif").addClass('hidden');
+
+                //checkValueInput("inputVoter",$('#inputVoter').attr('data-candidate-id' )
 
                 if(updatedvote === voteGlobal)
                 {
