@@ -108,6 +108,7 @@
             }, 10000);
 
             $('#tbl_1').DataTable({
+                "dom": "ft",
                 "order" : [[ 3, "desc" ]],
                 "columnDefs": [
                     {
@@ -116,7 +117,7 @@
                     }
                 ],
                 "language": {
-                    searchPlaceholder: "Search Precint or Cluster"
+                    searchPlaceholder: "Search"
                 },
             });
 
@@ -129,11 +130,12 @@
                     }
                 ],
                 "language": {
-                    searchPlaceholder: "Search Precint or Cluster"
+                    searchPlaceholder: "Search"
                 },
             });
 
             $('#tbl_3').DataTable({
+                "dom": "ft",
                 "order" : [[ 3, "desc" ]],
                 "columnDefs": [
                     {
@@ -142,7 +144,7 @@
                     }
                 ],
                 "language": {
-                    searchPlaceholder: "Search Precint or Cluster"
+                    searchPlaceholder: "Search"
                 },
             });
 
@@ -155,7 +157,7 @@
                     }
                 ],
                 "language": {
-                    searchPlaceholder: "Search Precint or Cluster"
+                    searchPlaceholder: "Search"
                 },
             });
         });
