@@ -19,8 +19,19 @@ class AdminTwoController extends Controller
         $candidates = $em->getRepository('AppBundle:VoteTwo')
             ->getVotesOfAllCandidates();
 
+        $clusters = $em->getRepository('AppBundle:Cluster')
+            ->findAll();
+        $doneClusters = count($em->getRepository('AppBundle:Cluster')
+            ->findBy(['isDone' => true]));
+        $totalClusters = count($clusters);
+        $percentageStatus = ($doneClusters/$totalClusters)*100;
+        $percentageRemaining = 100 - $percentageStatus;
+
         return $this->render('adminTwo/index.html.twig', [
-            'candidates' => $candidates
+            'candidates' => $candidates,
+            'totalClusters' => $totalClusters,
+            'percentageStatus' => $percentageStatus,
+            'remainingPercentage' => $percentageRemaining,
         ]);
     }
 

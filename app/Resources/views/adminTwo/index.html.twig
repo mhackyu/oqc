@@ -6,6 +6,21 @@
 {% block body %}
     <div class="container">
         <div class="row">
+            <div class="col-md-12">
+                <h5><b>Encoding Progress (<a href="{{ path('admin_cluster_status') }}">more info <i class="fa fa-info-circle" aria-hidden="true"></i></a>)</b></h5>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" style="width: {{ percentageStatus }}%">
+                        <span class="sr-only">{{ percentageStatus }}% Complete (success)</span>
+                        {{ percentageStatus|number_format(0) }}%
+                    </div>
+                    <div class="progress-bar progress-bar-danger" style="width: {{ remainingPercentage }}%">
+                        <span class="sr-only">{{ remainingPercentage }}10% Complete (danger)</span>
+                        {{ remainingPercentage|number_format(0) }}%
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             {#<h2 class="animated bounceInLeft">Welcome, Administrator!</h2>#}
             <h2 class="text-center"><strong>Overall Ranking</strong><span> <a href="{{ path('report_overall_ranking') }}" target="_blank" class="btn btn-primary"><i class="fa fa-print" aria-hidden="true"></i> Print</a></span></h2>
             {#<hr>#}
