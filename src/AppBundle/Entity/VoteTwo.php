@@ -45,6 +45,12 @@ class VoteTwo
      */
     private $user;
 
+
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $history;
+
     /**
      * @ORM\Column(type="datetime")
      */
@@ -149,6 +155,22 @@ class VoteTwo
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHistory()
+    {
+        return $this->history;
+    }
+
+    /**
+     * @param mixed $history
+     */
+    public function setHistory($history)
+    {
+        $this->history = $history;
     }
 
 

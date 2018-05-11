@@ -42,15 +42,25 @@ class ApiController extends Controller
     public function updateVotesByAction(Request $request)
     {
         if ($request->isMethod("POST")) {
+            $date = new \DateTime();
             $clusterId = $request->request->get('cluster');
             $candidateId = $request->request->get('candidate');
             $count = $request->request->get('count');
-
             $em = $this->getDoctrine()->getManager();
+            $vote = $em->getRepository('AppBundle:VoteTwo')
+                ->find($candidateId);
+
+            $voteHistory = $vote->getHistory();
+            $voteHistory [] = [
+                'date' => $date,
+                'vote' => $vote->getCount()
+            ];
+            $vote->setHistory($voteHistory);
 
             // Update candidate vote in cluster.
             $success = $em->getRepository('AppBundle:VoteTwo')
                 ->apiUpdateVoteOfCandidatePerCluster($clusterId, $candidateId, $count);
+            $em->flush();
 
             return new JsonResponse([
                 'isSuccess' => $success
@@ -60,6 +70,18 @@ class ApiController extends Controller
         return new JsonResponse([
             'isSuccess' => 0
         ]);
+    }
+
+    /**
+     * This will just check for the history of votes
+     * @Route("/api/check")
+     */
+    public function checkAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $vote = $em->getRepository('AppBundle:VoteTwo')
+            ->find(1);
+        dump($vote->getHistory());die;
     }
 
     /**
