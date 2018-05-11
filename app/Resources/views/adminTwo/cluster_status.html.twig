@@ -25,6 +25,7 @@
                     <thead>
                     <tr>
                         <th>Cluster No.</th>
+                        <th>Location</th>
                         <th>Status</th>
                     </tr>
                     </thead>
@@ -32,6 +33,7 @@
                     {% for cluster in clusters %}
                         <tr>
                             <td>{{ cluster.number }}</td>
+                            <td width="50%">{{ cluster.location.name }}</td>
                             <td>
                                 {% if cluster.isDone %}
                                     <span class="label label-success">YES</span>
