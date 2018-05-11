@@ -114,7 +114,6 @@
 
 {% endblock %}
 
-
 {% block javascript %}
     <script>
         function viewCandidates(clusterID)
@@ -128,11 +127,11 @@
                 data: {cluster:clusterID},
                 dataType: 'json',
                 success: function(data)
-                {   
+                {
                     var pos = 1;
                     var temppos = 1;
                     for (var i = 0; i<data.candidates.length; i++) {
-                        
+
                         if(pos != temppos)
                         {
                             pos = data.candidates[i].pos_id;
@@ -142,11 +141,11 @@
                             html += '    <tr>';
                             html += '        <th>Name</th>';
                             html += '        <th>NickName</th>';
-                            html += '        <th>Vote</th>';  
+                            html += '        <th>Vote</th>';
                             html += '    </tr>';
                             html += '  </thead>';
                             html += '  <tbody>';
-                        
+
                             for(var x =0; x<data.candidates.length; x++ ) {
                                 if(pos == data.candidates[x].pos_id )
                                 {
@@ -155,7 +154,7 @@
                                     html += '         <td>'+data.candidates[x].nickname+'</td>';
                                     html += '         <th>'+data.candidates[x].vote+'</th>';
                                     html += '     </tr>';
-                                }       
+                                }
                             }
                             html += '  </tbody>';
                             html += '</table>';
@@ -165,7 +164,7 @@
                             temppos = temppos + 1;
                         }
                     }
-                     
+
                     $("#candidate-table").html(html);
 
                 },
@@ -173,7 +172,7 @@
                 {
                     alert('Ooops! Failed to get the data. Please contact the administrator.');
                 }
-            }); 
+            });
         }
 
         $(document).ready( function() {
