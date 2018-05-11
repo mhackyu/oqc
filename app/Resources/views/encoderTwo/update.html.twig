@@ -45,7 +45,7 @@
                         <td>{{ candidate[0].nickname }}</td>
                         <td>
                             {% if not cluster.isDone %}
-                                <input name="votes[{{ candidate[0].id }}]" type="number" class="form-control" placeholder="0 - {{ cluster.totalVoters }}" min="0" max="{{ cluster.totalVoters }}" required value="{{ candidate['vote'] }}"/>
+                                <input name="votes[{{ candidate[0].id }}]" id="input-{{candidate[0].id}}" candidate_pos="{{ candidate.id }}" type="number" class="form-control" placeholder="0 - {{ cluster.totalVoters }}" min="0" max="{{ cluster.totalVoters }}" required value="{{ candidate['vote'] }}" onkeyup='checkValueInput("input-{{candidate[0].id}}")' /> 
                             {% else %}
                                 {% set isDone = true %}
                                 <label id="label-{{candidate[0].id}}" name="votes[{{ candidate[0].id }}]"  class="" placeholder="0 - {{ cluster.totalVoters }}" min="0" max="{{ cluster.totalVoters }}" required >{{ candidate['vote'] }}</label>
@@ -65,19 +65,23 @@
                     </div>
                 {% endif %}
 
-                <div class="modal fade" id="modal-save">
+                <div class="modal fade" id="modal-alert">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title">Confirm</h4>
+                                <h4 class="modal-title">Exceeded Maximum Voters</h4>
                             </div>
                             <div class="modal-body">
-                                Are you sure you want to save?
+                               The entered votes for the position: <label style="display: inline;" id="display-position"></label> has exceeded to the total number of voters in this clustered precinct. 
+                               <br>
+                               Max.: <label style="display: inline;">{{cluster.totalVoters}}</label>
+                               <br>
+                               Total number of entered votes: <label style="display: inline;" id="display-entered-votes"></label>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Okay</button>
+                                <!-- <button type="submit" class="btn btn-primary">Save changes</button> -->
                             </div>
                         </div>
                     </div>
@@ -184,18 +188,99 @@
             var time;
             var timer;
             var btnid;
+            var totalVotersGlobal = "{{ cluster.totalVoters }}";
+
         $(document).ready( function () {
 
-           
-
+         //alert($("#input-1").val());
+            
         });//$(document).ready( function () {
 
+            function checkValueInput(candidateidin)
+            {
+                //alert($("#"+inputidin).attr("candidate_pos"));
+                var i1=0,i2=0,i3=0,i4=0,i5=0,i6=0,i7=0,i8=0,i9=0,i10=0,i11=0,i12=0,i13=0,i14=0,i15=0,i16=0,i17=0,i18=0,i19=0,i20=0,i21=0,i22=0,i23=0,i24=0;
+                var i25=0,i26=0,i27=0;
+                var i28=0,i29=0,i30=0,i31=0,i32=0,i33=0,i34=0,i35=0,i36=0,i37=0,i38=0,i39=0,i40,i41=0,i42=0,i43=0,i44=0,i45=0,i46=0,i47=0,i48=0,i49=0,i50=0,i51=0;
 
+                var sum1 = 0, sum2 = 0, sum3 = 0, sum4 = 0;
+                
+                for(var i = 1; i < 4; i++ )
+                {
+                    
+                    sum1 = sum1 + Number($("#input-"+i).val());
+                    
+                }
+
+                if(sum1>totalVotersGlobal)
+                {
+                    // alert("You have exceeded the maximum voters for this precinct cluster. Max.: "+totalVotersGlobal);
+                    $("#modal-alert").modal();
+                    $("#"+candidateidin).val(0);
+                    $("#display-position").html("Punong Barangay");
+                    $("#display-entered-votes").html(sum1);
+                }
+
+                for(var i = 4; i < 28; i++ )
+                {
+                    
+                    sum2 = sum2 + Number($("#input-"+i).val());
+                    
+                }
+
+                 if(sum2>totalVotersGlobal)
+                {
+                    // alert("You have exceeded the maximum voters for this precinct cluster. Max.: "+totalVotersGlobal);
+                    $("#modal-alert").modal();
+                    $("#"+candidateidin).val(0);
+                    $("#display-position").html("Barangay Kagawad");
+                    $("#display-entered-votes").html(sum2);
+                }
+
+                for(var i = 28; i < 31; i++ )
+                {
+                    
+                    sum3 = sum3 + Number($("#input-"+i).val());
+                    
+                }
+                
+                 if(sum3>totalVotersGlobal)
+                {
+                    // alert("You have exceeded the maximum voters for this precinct cluster. Max.: "+totalVotersGlobal);
+                    $("#modal-alert").modal();
+                    $("#"+candidateidin).val(0);
+                    $("#display-position").html("SK Chairman");
+                    $("#display-entered-votes").html(sum3);
+                }
+
+                for(var i = 31; i < 52; i++ )
+                {
+                    
+                    sum4 = sum4 + Number($("#input-"+i).val());
+                    
+                }
+
+                 if(sum4>totalVotersGlobal)
+                {
+                    // alert("You have exceeded the maximum voters for this precinct cluster. Max.: "+totalVotersGlobal);
+                    $("#modal-alert").modal();
+                    $("#"+candidateidin).val(0);
+                    $("#display-position").html("SK Kagawad");
+                    $("#display-entered-votes").html(sum4);
+                }
+               
+
+
+                // sum2 = i4 + i5 + i6 + i7 + i8 + i9 + i10 + i11 + i12 + i13 + i14 + i15 + i16 + i17 + i18 + i19 + i20 + i21 + i22 + i23 + i24 + i25 + i26 + i27;
+ 
+                //alert(sum2);
+                
+                
+            }
 //editClick
             function editclick(candidateID, clusterID, name, nickname, vote, totalVoters, btnidin)
             {
                 //alert(btnid);
-
                 var candidateID = candidateID;
                 var clusterID = clusterID;
                 var name = name;
@@ -214,8 +299,6 @@
                 labelid = candidateID;
                 $("#loader").addClass('animated zoomIn');
                 $("#loader").addClass('hidden');
-                // $("#successUpdate").addClass('hidden');
-                // $("#failedUpdate").addClass('hidden');
                 $("#notif").addClass('hidden');
                 $("#btnUpdateVote").removeClass('hidden');
                 $("#timer").addClass('hidden');
@@ -267,9 +350,6 @@
                                  $("#timer").addClass('animated fadeInLeft');
                                 time = 2;
                                 timer = setInterval(function(){Timer()}, 1000); 
-
-
-
                             }
                             else
                             {
@@ -311,6 +391,7 @@
             }
 
 
+
             // Add Item Validation
 //            $('#frmVote').formValidation({
 //                framework: 'bootstrap',
@@ -322,6 +403,7 @@
 //            });
 
        // });
+
     </script>
 
 <!--     {#<script> #}
