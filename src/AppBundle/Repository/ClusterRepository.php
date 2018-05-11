@@ -41,4 +41,15 @@ class ClusterRepository extends EntityRepository
             ')
             ->getResult();
     }
+
+    public function getTotalOfDoneCluster()
+    {
+        return $this->getEntityManager()
+            ->createQuery('
+                SELECT SUM(c.id)
+                FROM AppBundle:Cluster c
+                WHERE c.isDone = true
+            ')
+            ->getResult();
+    }
 }

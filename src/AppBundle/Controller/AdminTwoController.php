@@ -92,8 +92,6 @@ class AdminTwoController extends Controller
 
         ];
 
-//        dump($clusters);die;
-
         $totalVotes = $em->getRepository('AppBundle:VoteTwo')
             ->getTotalVotesPerCandidate($candidate->getId());
 
@@ -101,6 +99,29 @@ class AdminTwoController extends Controller
             'candidate' => $candidate,
             'clusters' => $clusters,
             'totalVotes' => $totalVotes,
+        ]);
+    }
+
+    /**
+     * @Route("/admin/cluster-status", name="admin_cluster_status")
+     */
+    public function clusterStatusAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $clusters = $em->getRepository('AppBundle:Cluster')
+            ->findAll();
+        $doneClusters = count($em->getRepository('AppBundle:Cluster')
+            ->findBy(['isDone' => true]));
+        $totalClusters = count($clusters);
+        $percentageStatus = ($doneClusters/$totalClusters)*100;
+        $percentageRemaining = 100 - $percentageStatus;
+
+        return $this->render('adminTwo/cluster_status.html.twig', [
+            'clusters' => $clusters,
+            'doneClusters' => $doneClusters,
+            'totalClusters' => $totalClusters,
+            'percentageStatus' => $percentageStatus,
+            'remainingPercentage' => $percentageRemaining
         ]);
     }
 

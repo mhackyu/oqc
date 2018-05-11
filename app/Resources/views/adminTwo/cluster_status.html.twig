@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    Administrator - Cluster Status
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            {#<h2 class="animated bounceInLeft">Welcome, Administrator!</h2>#}
+            <h2 class="text-center"><strong>Cluster Status</strong></h2>
+
+            <div class="progress">
+                <div class="progress-bar progress-bar-success" style="width: {{ percentageStatus }}%">
+                    <span class="sr-only">{{ percentageStatus }}% Complete (success)</span>
+                    {{ percentageStatus|number_format(0) }}%
+                </div>
+                <div class="progress-bar progress-bar-danger" style="width: {{ remainingPercentage }}%">
+                    <span class="sr-only">{{ remainingPercentage }}10% Complete (danger)</span>
+                    {{ remainingPercentage|number_format(0) }}%
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <table id="tbl_cluster" class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Cluster No.</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for cluster in clusters %}
+                        <tr>
+                            <td>{{ cluster.number }}</td>
+                            <td>
+                                {% if cluster.isDone %}
+                                    <span class="label label-success">YES</span>
+                                {% else %}
+                                    <span class="label label-danger">NO</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        setTimeout( function () {
+            window.location.reload(1);
+        }, 10000);
+
+        $(document).ready( function () {
+            $('#tbl_cluster').DataTable({
+                "pageLength": 50,
+                "order" : [[ 0, "asc" ]],
+                "columnDefs": [
+                    {
+                        "targets": [1],
+                        "searchable": false
+                    }
+                ],
+                "language": {
+                    searchPlaceholder: "Cluster"
+                },
+            });
+        });
+    </script>
+{% endblock %}
+
+
+
+
