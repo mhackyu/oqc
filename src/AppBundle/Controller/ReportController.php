@@ -74,7 +74,7 @@ class ReportController extends Controller
 
         $clusters = [
             [
-                'loc_name' => 'San Antonio',
+                'loc_name' => 'San Antonio Elementary School',
                 'clusters' => $saesWithVoters,
             ],
             [
@@ -91,6 +91,8 @@ class ReportController extends Controller
         $totalVotes = $em->getRepository('AppBundle:VoteTwo')
             ->getTotalVotesPerCandidate($candidate->getId());
 
+//        dump($clusters);die;
+
         $html2pdf = new Html2Pdf('P', 'Legal', 'en', false, 'UTF-8');
         $html2pdf->setDefaultFont('Arial');
         $html = $this->renderView('report/vote_info.html.twig', [
@@ -100,10 +102,10 @@ class ReportController extends Controller
             'date' => $date
         ]);
 
-        $html2pdf->pdf->setTitle("OQC-Vote-Information");
+        $html2pdf->pdf->setTitle($candidate->getName() . " Vote Information");
         $html2pdf->writeHTML($html);
 
-        return $html2pdf->output('OQC-Vote-Information.pdf');
+        return $html2pdf->output($candidate->getName() . " Vote Information.pdf");
     }
 
     /**

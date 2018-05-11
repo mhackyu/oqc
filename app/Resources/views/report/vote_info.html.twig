@@ -49,65 +49,32 @@
     <h2 style="text-align: right; margin-top: -35px;"><span>12,{{ totalVotes|number_format }}</span> total votes</h2>
     <hr>
 
+    {% set totalPrecintVotes = 0 %}
     {% for cluster in clusters %}
-        <table cellpadding="0" cellspacing="0">
+        <h4>{{ cluster.loc_name }}</h4>
+        <table cellpadding="0" cellspacing="0" style="margin-left: 150px;">
             <tr>
-                <td width="100">Cluster No.</td>
-                <td>Total Registered Voters</td>
-                <td width="100">Percentage</td>
-                <td width="100">Votes</td>
+                <td width="150"><b>Cluster No.</b></td>
+                <td><b>Total Registered Voters</b></td>
+                {#<td width="100"><b>Percentage</b></td>#}
+                <td width="150"><b>Votes</b></td>
             </tr>
             {% for cl in cluster.clusters %}
             <tr>
-                <td>{{ cl.cl_number }}</td>
-                <td>{{ cl.totalVoters }}</td>
-                <td>{{ ((cl.votes/cl.totalVoters)*100)|number_format(0) }}%</td>
-                <td>{{ cl.votes|number_format }}</td>
+                <td style="padding: 0;">{{ cl.cl_number }}</td>
+                <td style="padding: 0;">{{ cl.totalVoters }}</td>
+                {#<td>{{ ((cl.votes/cl.totalVoters)*100)|number_format(0) }}%</td>#}
+                <td style="padding: 0;">{{ cl.votes|number_format }}</td>
             </tr>
+                {% set totalPrecintVotes = totalPrecintVotes + cl.votes %}
             {% endfor %}
+            <tr>
+                <td colspan="2" style="text-align: right;"><b style="font-size: 16px;">Total</b></td>
+                <td><b style="font-size: 16px;">{{ totalPrecintVotes|number_format }}</b></td>
+            </tr>
+            {% set totalPrecintVotes = 0 %}
         </table>
     {% endfor %}
-    {#{% for cluster in clusters %}#}
-    {#{% set totalPrecintVotes = 0 %}#}
-    {#<table>#}
-        {#<tr>#}
-            {#<td class="bg-primary">Cluster No.</td>#}
-            {#<td class="bg-primary" width="30%">Total Registered Voters</td>#}
-            {#<td class="bg-primary">Percentage</td>#}
-            {#<td class="bg-primary"><div class="text-center">Votes</div></td>#}
-        {#</tr>#}
-        {#{% for cl in cluster.clusters %}#}
-            {#<tr class="bg-info">#}
-                {#<td>{{ cl.cl_number }}</td>#}
-                {#<td>{{ cl.totalVoters }}</td>#}
-                {#<td>{{ ((cl.votes/cl.totalVoters)*100)|number_format(0) }}%</td>#}
-                {#<td>#}
-                    {#<div class="pull-right">#}
-                        {#{{ cl.votes|number_format }}#}
-                    {#</div>#}
-                {#</td>#}
-            {#</tr>#}
-            {#{% set totalPrecintVotes = totalPrecintVotes + cl.votes %}#}
-        {#{% else %}#}
-            {#<tr>#}
-                {#<td colspan="2">No votes found.</td>#}
-            {#</tr>#}
-        {#{% endfor %}#}
-        {#<h4 style="margin-top: 50px;"><b>{{ cluster.loc_name }}</b></h4>#}
-        {#<tr>#}
-            {#<td colspan="2"></td>#}
-            {#<td>#}
-                {#<div class="pull-right">#}
-                    {#<b>TOTAL</b>#}
-                {#</div>#}
-            {#</td>#}
-            {#<td style="font-size: 16px;">#}
-                {#<div class="pull-right">#}
-                    {#<b>{{ totalPrecintVotes }}</b>#}
-                {#</div>#}
-            {#</td>#}
-        {#</tr>#}
-        {#{% endfor %}#}
-    {#</table>#}
-
+    <p style="text-align: center;">-END-</p>
+    <p style="text-align: center; margin: 0;">This is system generated.</p>
 </page>
