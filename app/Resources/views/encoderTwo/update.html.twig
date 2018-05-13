@@ -7,12 +7,13 @@
     <div class="container">
         <div class="row" id="candidate-row">
             <h4><b>Polling Place: </b><span><i>{{ cluster.location.name }}</i></span></h4>
-            <h4><b>Cluster No.: </b><span><i>{{ cluster.number }}</i></span>
-                <b>Precint Nos.: </b><span><i>
-                        {% for precint in precints %}
-                            {{ precint.number }};
-                        {% endfor %}
-                    </i></span>
+            <h4><b>Cluster No.: </b><span><i>{{ cluster.number }}</i>
+                {#</span>#}
+                {#<b>Precint Nos.: </b><span><i>#}
+                        {#{% for precint in precints %}#}
+                            {#{{ precint.number }};#}
+                        {#{% endfor %}#}
+                    {#</i></span>#}
             </h4>
 
             <h4><b>Total No. of Registered Voters: </b><span><i>{{ cluster.totalVoters }}</i></span></h4>
@@ -37,6 +38,9 @@
                     </thead>
                     <tbody >
                     <h4 class="text-center"><b>{{ candidate.name }}</b></h4>
+                    <div class="alert alert-warning" id="notif-{{ candidate.id }}" hidden="true">
+                        <strong>Warning</strong> The entered votes for this position has exceeded to the total number of voters in this clustered precinct.
+                    </div>
                     <hr>
                     {% set cnt = cnt + 1 %}
                     {% endif %}
@@ -237,11 +241,15 @@
                // alert(sum1);
                 if(sum1>totalVotersGlobal)
                 {
-                    $("#modal-alert").modal();
-                    $("#"+candidateidin).val(0);
+//                    $("#modal-alert").modal();
+//                    $("#"+candidateidin).val(0);
+                    $('#notif-1').show(500);
                     $("#maxVoters").html(totalVotersGlobal);
                     $("#display-position").html("Punong Barangay");
                     $("#display-entered-votes").html(sum1);
+                }
+                else {
+                    $('#notif-1').hide(500);
                 }
 
                 for(var i = 4; i < 28; i++ )
@@ -253,12 +261,16 @@
 
                  if(sum2>(totalVotersGlobal * 7))
                 {
-                    $("#modal-alert").modal();
-                    $("#"+candidateidin).val(0);
+//                    $("#modal-alert").modal();
+//                    $("#"+candidateidin).val(0);
+                     $('#notif-2').show(500);
                     $("#maxVoters").html(totalVotersGlobal * 7);
                     $("#display-position").html("Barangay Kagawad");
                     $("#display-entered-votes").html(sum2);
                 }
+                else {
+                     $('#notif-2').hide(500);
+                 }
 
                 for(var i = 28; i < 31; i++ )
                 {
@@ -269,12 +281,16 @@
                 
                  if(sum3>totalVotersGlobal)
                 {
-                    $("#modal-alert").modal();
-                    $("#"+candidateidin).val(0);
+//                    $("#modal-alert").modal();
+//                    $("#"+candidateidin).val(0);
+                     $('#notif-3').show(500);
                     $("#maxVoters").html(totalVotersGlobal);
                     $("#display-position").html("SK Chairman");
                     $("#display-entered-votes").html(sum3);
                 }
+                else {
+                     $('#notif-3').hide(500);
+                 }
 
                 for(var i = 31; i < 52; i++ )
                 {
@@ -285,12 +301,16 @@
 
                  if(sum4>(totalVotersGlobal * 7))
                 {
-                    $("#modal-alert").modal();
-                    $("#"+candidateidin).val(0);
+//                    $("#modal-alert").modal();
+//                    $("#"+candidateidin).val(0);
+                     $('#notif-4').show(500);
                     $("#maxVoters").html(totalVotersGlobal * 7);
                     $("#display-position").html("SK Kagawad");
                     $("#display-entered-votes").html(sum4);
                 }
+                else {
+                     $('#notif-4').hide(500);
+                 }
                
 
 
@@ -322,11 +342,11 @@
                 if(sum1>totalVotersGlobal)
                 {
 
-                    $("#"+inputvoter).val($("#"+source).html());
+//                    $("#"+inputvoter).val($("#"+source).html());
                     $("#notif").removeClass('hidden');
                     $("#notif").addClass('animated jackInTheBox');
                     $("#status-notif").attr('color','orange');
-                    $("#status-notif").html("The entered votes for the position: PUNONG BARANGAY has exceeded to the total number of voters in this clustered precinct.<br> Max: " + totalVotersGlobal +  "<br>  Total number of entered votes: " + sum1 + "<br><br> Vote has been set to previous value.");              
+                    $("#status-notif").html("The entered votes for this position has exceeded to the total number of voters in this clustered precinct.<br> Max: " + totalVotersGlobal +  "<br>  Total number of entered votes: " + sum1);
                 }
 
                 
@@ -347,11 +367,11 @@
                  if(sum2>(totalVotersGlobal * 7))
                 {
 
-                    $("#"+inputvoter).val($("#"+source).html());
-                    $("#notif").removeClass('hidden');
-                    $("#notif").addClass('animated jackInTheBox');
-                    $("#status-notif").attr('color','orange');
-                    $("#status-notif").html("The entered votes for the position: PUNONG BARANGAY has exceeded to the total number of voters in this clustered precinct.<br> Max: " + (totalVotersGlobal * 7) +  "<br>  Total number of entered votes: " + sum2 + "<br><br> Vote has been set to previous value.");              
+//                    $("#"+inputvoter).val($("#"+source).html());
+//                    $("#notif").removeClass('hidden');
+//                    $("#notif").addClass('animated jackInTheBox');
+//                    $("#status-notif").attr('color','orange');
+//                    $("#status-notif").html("The entered votes for the position: PUNONG BARANGAY has exceeded to the total number of voters in this clustered precinct.<br> Max: " + (totalVotersGlobal * 7) +  "<br>  Total number of entered votes: " + sum2 + "<br><br> Vote has been set to previous value.");
                 }
                 
                 for(var i = 28; i < 31; i++ )
@@ -369,11 +389,11 @@
                  if(sum3>totalVotersGlobal)
                 {
 
-                    $("#"+inputvoter).val($("#"+source).html());
-                    $("#notif").removeClass('hidden');
-                    $("#notif").addClass('animated jackInTheBox');
-                    $("#status-notif").attr('color','orange');
-                    $("#status-notif").html("The entered votes for the position: SK CHAIRMAN has exceeded to the total number of voters in this clustered precinct.<br> Max: " + totalVotersGlobal +  "<br>  Total number of entered votes: " + sum3 + "<br><br> Vote has been set to previous value.");              
+//                    $("#"+inputvoter).val($("#"+source).html());
+//                    $("#notif").removeClass('hidden');
+//                    $("#notif").addClass('animated jackInTheBox');
+//                    $("#status-notif").attr('color','orange');
+//                    $("#status-notif").html("The entered votes for the position: SK CHAIRMAN has exceeded to the total number of voters in this clustered precinct.<br> Max: " + totalVotersGlobal +  "<br>  Total number of entered votes: " + sum3 + "<br><br> Vote has been set to previous value.");
                 }
                 
 
@@ -392,11 +412,11 @@
                  if(sum4>(totalVotersGlobal * 7))
                 {
 
-                    $("#"+inputvoter).val($("#"+source).html());
-                    $("#notif").removeClass('hidden');
-                    $("#notif").addClass('animated jackInTheBox');
-                    $("#status-notif").attr('color','orange');
-                    $("#status-notif").html("The entered votes for the position: SK KAGAWAD has exceeded to the total number of voters in this clustered precinct.<br> Max: " + (totalVotersGlobal * 7) +  "<br>  Total number of entered votes: " + sum4 + "<br><br> Vote has been set to previous value.");              
+//                    $("#"+inputvoter).val($("#"+source).html());
+//                    $("#notif").removeClass('hidden');
+//                    $("#notif").addClass('animated jackInTheBox');
+//                    $("#status-notif").attr('color','orange');
+//                    $("#status-notif").html("The entered votes for the position: SK KAGAWAD has exceeded to the total number of voters in this clustered precinct.<br> Max: " + (totalVotersGlobal * 7) +  "<br>  Total number of entered votes: " + sum4 + "<br><br> Vote has been set to previous value.");
                 }
 
                 
