@@ -46,7 +46,7 @@
 
     <h2 class="text-info" style="margin-bottom: 0px;"><b>{{ candidate.name }}</b></h2>
     <h4 style="margin-top: 0px;margin-bottom: 0px;"><b>{{ candidate.position.name }}</b></h4>
-    <h2 style="text-align: right; margin-top: -35px;"><span>12,{{ totalVotes|number_format }}</span> total votes</h2>
+    <h2 style="text-align: right; margin-top: -35px;"><span>{{ totalVotes|number_format }}</span> total votes</h2>
     <hr>
 
     {% set totalPrecintVotes = 0 %}
