@@ -327,6 +327,12 @@
 
                 var sum1 = 0, sum2 = 0, sum3 = 0, sum4 = 0;
                 
+                if($("#"+inputvoter).val() == "")
+                {
+                    //alert("no value");
+                    //$("#"+inputvoter).val(0);
+                }
+
                 for(var i = 1; i < 4; i++ )
                 {
                     if(inputtype+i == source)
@@ -473,12 +479,22 @@
 //UpdateVote
             function updateVote()
             {
-                var updatedvote = $('#inputVoter').val();
+                var updatedvote = Number($('#inputVoter').val());
+                
+                //break;
+                if(updatedvote == "")
+                {
+
+                    updatedvote = 0;
+                
+                }
+
                 $("#notif").addClass('hidden');
 
                 //checkValueInput("inputVoter",$('#inputVoter').attr('data-candidate-id' )
-
-                if(updatedvote === voteGlobal)
+                alert(updatedvote + " " + voteGlobal)
+                
+                if(updatedvote == voteGlobal )
                 {
                      $("#notif").removeClass('hidden');
                      $("#notif").addClass('animated jackInTheBox');
@@ -520,10 +536,11 @@
                             }
                             else
                             {
+                                $("#loader").addClass('hidden');
                                 $("#notif").removeClass('hidden');
                                 $("#notif").addClass('animated jackInTheBox');
                                 $("#status-notif").attr('color','red');
-                                $("#status-notif").html("Update failed! Try Reloading the page.");
+                                $("#status-notif").html("Update failed! Please try again or reload/refresh the page.");
                                 $("#btnUpdateVote").prop('disabled', false);
                             }
                         },
