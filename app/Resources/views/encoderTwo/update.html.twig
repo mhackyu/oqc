@@ -48,15 +48,16 @@
                         <td>{{ candidate[0].name }}</td>
                         <td>{{ candidate[0].nickname }}</td>
                         <td>
-                            {% if not cluster.isDone %}
-                                <input name="votes[{{ candidate[0].id }}]" id="input-{{candidate[0].id}}" candidate_pos="{{ candidate.id }}" type="number" class="form-control" placeholder="0" min="0" max="" required value="{{ candidate['vote'] }}" onkeypress="return isNumberKey(event)" onkeyup='checkValueInput("input-{{candidate[0].id}}", "input-", "{{ candidate.id }}")' /> 
-                            {% else %}
-                                {% set isDone = true %}
-                                <label id="label-{{candidate[0].id}}" name="votes[{{ candidate[0].id }}]"  class="" placeholder="0 - {{ cluster.totalVoters }}" min="0" max="{{ cluster.totalVoters }}" required >{{ candidate['vote'] }}</label>
+                            <input name="votes[{{ candidate[0].id }}]" type="number" class="form-control" placeholder="0" min="0" max="" required value="{{ candidate['vote'] }}"/>
+                            {#{% if not cluster.isDone %}#}
+                                {#<input name="votes[{{ candidate[0].id }}]" id="input-{{candidate[0].id}}" candidate_pos="{{ candidate.id }}" type="number" class="form-control" placeholder="0" min="0" max="" required value="{{ candidate['vote'] }}" onkeypress="return isNumberKey(event)" onkeyup='checkValueInput("input-{{candidate[0].id}}", "input-", "{{ candidate.id }}")' /> #}
+                            {#{% else %}#}
+                                {#{% set isDone = true %}#}
+                                {#<label id="label-{{candidate[0].id}}" name="votes[{{ candidate[0].id }}]"  class="" placeholder="0 - {{ cluster.totalVoters }}" min="0" max="{{ cluster.totalVoters }}" required >{{ candidate['vote'] }}</label>#}
 
-                                <button id="btn-{{candidate[0].id}}" type="button" class="btn btn-sm btn-success pull-right btnEdit" data-toggle="modal" data-target="#updateVote" voteval="{{candidate['vote']}}"  onclick="editclick('{{ candidate[0].id }}','{{ cluster.id }}','{{candidate[0].name}}','{{candidate[0].nickname}}','{{candidate['vote']}}','{{ cluster.totalVoters }}', 'btn-{{candidate[0].id}}', 'label-{{ candidate[0].id }}')" ><i class="fa fa-edit"></i> Update</button>
+                                {#<button id="btn-{{candidate[0].id}}" type="button" class="btn btn-sm btn-success pull-right btnEdit" data-toggle="modal" data-target="#updateVote" voteval="{{candidate['vote']}}"  onclick="editclick('{{ candidate[0].id }}','{{ cluster.id }}','{{candidate[0].name}}','{{candidate[0].nickname}}','{{candidate['vote']}}','{{ cluster.totalVoters }}', 'btn-{{candidate[0].id}}', 'label-{{ candidate[0].id }}')" ><i class="fa fa-edit"></i> Update</button>#}
 
-                            {% endif %}
+                            {#{% endif %}#}
 
                         </td>
                     </tr>

@@ -75,11 +75,13 @@ class EncoderTwoController extends Controller
                 foreach ($votes as $id => $value) {
                     $candidate = $em->getRepository('AppBundle:Candidate')
                         ->find($id);
-                    $vote = $em->getRepository('AppBundle:Vote')
-                        ->findOneBy(['candidate' => $candidate, 'precint' => $cluster]);
+                    $vote = $em->getRepository('AppBundle:VoteTwo')
+                        ->findOneBy(['candidate' => $candidate, 'cluster' => $cluster]);
                     $vote->setCount($value);
+
                 }
                 $this->addFlash('success', 'Votes successfully updated.');
+
             }
             else {
                 // Add votes of candidates in precint.
